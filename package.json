@@ -1,0 +1,65 @@
+{
+  "name": "web-vue3",
+  "version": "1.0.0",
+  "description": "Vue3.x学习笔记",
+  "main": "index.js",
+  "author": "zhoubichaun@icloud.com",
+  "hommepage": "https://github.com/zhoubichuan/web-vue3/",
+  "private": true,
+  "license": "MIT",
+  "keywords": [],
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src",
+    "preinstall": "npx only-allow pnpm",
+    "release": "release-it",
+    "commit": "cz",
+    "eslint": "eslint ./**/*",
+    "deploy": "bash deploy.sh",
+    "github": "bash github.sh",
+    "gitee": "bash gitee.sh",
+    "dll": "webpack -p --progress --config ./src/.vuepress/webpack.dll.conf.js"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@release-it/conventional-changelog": "^5.1.1",
+    "@vuepress/client": "2.0.0-beta.51",
+    "@vuepress/plugin-back-to-top": "^2.0.0-beta.63",
+    "@vuepress/plugin-prismjs": "^2.0.0-beta.63",
+    "async-validator": "^1.11.5",
+    "body-parser": "^1.20.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "commitizen": "^4.3.0",
+    "cz-customizable": "^7.0.0",
+    "eslint": "^8.35.0",
+    "husky": "^8.0.3",
+    "less": "^3.0.2",
+    "less-loader": "^4.1.0",
+    "node-sass": "^9.0.0",
+    "release-it": "^15.6.0",
+    "sass-loader": "^13.3.2",
+    "vue": "3.2.44",
+    "vue-router": "^4.2.2",
+    "vuepress": "2.0.0-beta.51",
+    "vuepress-plugin-boxx": "0.0.7",
+    "vuepress-plugin-demoblock-plus": "^2.0.4",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "2.0.10",
+    "element-plus": "2.2.17",
+    "axios": "0.21.1",
+    "i18n": "^0.15.1",
+    "less": "^3.0.2",
+    "lodash": "4.17.21",
+    "moment": "^2.29.4",
+    "vuex": "^4.1.0"
+  }
+}
