@@ -11,7 +11,6 @@
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src",
-    "preinstall": "npx only-allow pnpm",
     "release": "release-it",
     "commit": "cz",
     "eslint": "eslint ./**/*",
