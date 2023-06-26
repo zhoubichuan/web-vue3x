@@ -12,6 +12,7 @@
     "dev": "vuepress dev src",
     "build": "vuepress build src",
     "release": "release-it",
+    "preinstall": "npx only-allow pnpm",
     "commit": "cz",
     "eslint": "eslint ./**/*",
     "deploy": "bash deploy.sh",

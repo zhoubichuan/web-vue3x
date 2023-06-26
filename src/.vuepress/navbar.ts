@@ -10,7 +10,7 @@ export default[{
           link: '/base/project/1.index',
       },
       {
-          text: '四.Vue 3.x全家桶',
+          text: '三.Vue 3.x全家桶',
           link: '/base/vue3.x/1.index'
       }
   ]
@@ -18,21 +18,17 @@ export default[{
 {
   text: '高级知识',
   children: [
-      {
-          text: '一.微前端',
-          link: '/senior/1.micro/1.index'
-      },
 
       {
-          text: '二.TypeScript',
+          text: '一.TypeScript',
           link: '/senior/2.typescript/1.index'
       },
       {
-          text: '三.构建部署',
+          text: '二.构建部署',
           link: '/senior/3.deploy/1.index'
       },
       {
-          text: '四.组件开发',
+          text: '三.组件开发',
           link: '/senior/4.component/1.index'
       },
   ]

@@ -1,4 +1,3 @@
-// import path from 'path'
 import { defaultTheme } from 'vuepress'
 import navbar from './navbar'
 import sidebar from './sidebar'
@@ -20,15 +19,15 @@ export default{
   port: 3009,
   // head: [["script", { src: "/dll/vendor.dll.js" }]],
   beforeDevServer(app, server, compiler) {
-    // app.use(bodyParser?.json())
-    // app.use(bodyParser?.urlencoded({ extended: false }))
+    app.use(bodyParser?.json())
+    app.use(bodyParser?.urlencoded({ extended: false }))
   
     httpRequest(app);
   },
-  // alias: {
-  //   "@": path.resolve(__dirname, "../../src/"),
-  //   vue$: "vue/dist/vue.esm.js",
-  // },
+  alias: {
+    "@": "../../src/",
+    vue$: "vue/dist/vue.esm.js",
+  },
   scss: {
     data: `
     @import "~@/assets/style/var.scss";
