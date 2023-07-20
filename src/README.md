@@ -40,8 +40,8 @@ meta:
         <p>了解vue项目中使用gitlab、genkins、以及 docker + nginx实现vue的布署和持续集成的一些基本知识</p>
       </div>
       <div class="feature">
-        <h2><a href="/web-vue/source/vue2.x/1.index.html">Vue 2.x源码实现</a></h2> 
-        <p>深入了解VueCLI2.x原理、Vue 2.x原理剖析、Vue-router3.x原理剖析、Vuex3.x原理剖析 </p>
+        <h2><a href="/web-vue/source/vue2.x/1.index.html">Vue 3.x源码实现</a></h2> 
+        <p>深入了解VueCLI2.x原理、Vue 3.x原理剖析、Vue-router3.x原理剖析、Vuex3.x原理剖析 </p>
       </div>
       <div class="feature">
         <h2><a href="/web-vue/source/vue3.x/1.index.html">Vue 3.x源码实现</a></h2> 
