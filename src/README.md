@@ -47,10 +47,6 @@ meta:
         <h2><a href="/web-vue/source/vue3.x/1.index.html">Vue 3.x源码实现</a></h2> 
         <p>深入了解VueCLI3.x原理、Vue 3.x原理剖析、Vue-router4.x理剖析、Vuex4.x理剖析</p>
       </div>
-      <div class="feature">
-        <h2><a href="https://cn.vuejs.org">Vue 相关资料</a></h2> 
-        <p>主要介绍一些vue额外相关的资料、相关的书籍对vue相关知识进行一些补充</p>
-      </div>
     </div>
   </div>
 </template>
