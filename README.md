@@ -21,4 +21,3 @@
   - [二.Vue 3.x](./source/vue3.x/1.index.html)
   - [三.Vue-Router4.x](./source/vue-router4.x/1.index.html)
   - [四.Vuex4.x](./source/vuex4.x/1.index.html)
-- [Vue 相关资料](./source/vuex4.x/1.index.html)
