@@ -1,0 +1,1 @@
+import{_ as t,o as a,c as n,b as e,d as o}from"./app.8390b8a1.js";const s={},c=e("h1",{id:"mount",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#mount","aria-hidden":"true"},"#"),o(" mount")],-1),r=[c];function _(i,d){return a(),n("div",null,r)}const l=t(s,[["render",_],["__file","4.stateMixin.html.vue"]]);export{l as default};

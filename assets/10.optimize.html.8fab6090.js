@@ -1,0 +1,1 @@
+import{_ as t,o as a,c as s,b as e,d as o}from"./app.8390b8a1.js";const c={},r=e("h1",{id:"\u7F16\u8BD1-ast",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#\u7F16\u8BD1-ast","aria-hidden":"true"},"#"),o(" \u7F16\u8BD1\uFF08ast\uFF09")],-1),_=[r];function n(i,d){return a(),s("div",null,_)}const l=t(c,[["render",n],["__file","10.optimize.html.vue"]]);export{l as default};

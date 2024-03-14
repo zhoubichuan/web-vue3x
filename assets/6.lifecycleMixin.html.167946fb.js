@@ -1,0 +1,1 @@
+import{_ as c,o as t,c as a,b as e,d as n}from"./app.8390b8a1.js";const o={},r=e("h1",{id:"patch",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#patch","aria-hidden":"true"},"#"),n(" patch")],-1),s=[r];function _(i,d){return t(),a("div",null,s)}const h=c(o,[["render",_],["__file","6.lifecycleMixin.html.vue"]]);export{h as default};

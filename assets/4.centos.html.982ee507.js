@@ -1,0 +1,1 @@
+import{_ as t,o as c,c as o,b as e,d as s}from"./app.8390b8a1.js";const n={},a=e("h1",{id:"\u56DB-centos",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#\u56DB-centos","aria-hidden":"true"},"#"),s(" \u56DB.centos")],-1),r=[a];function _(d,i){return c(),o("div",null,r)}const l=t(n,[["render",_],["__file","4.centos.html.vue"]]);export{l as default};

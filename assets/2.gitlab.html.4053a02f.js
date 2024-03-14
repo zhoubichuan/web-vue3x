@@ -1,0 +1,1 @@
+import{_ as t,o as a,c,b as e,d as o}from"./app.8390b8a1.js";const r={},s=e("h1",{id:"\u4E8C-gitlab",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#\u4E8C-gitlab","aria-hidden":"true"},"#"),o(" \u4E8C.gitlab")],-1),_=[s];function i(n,l){return a(),c("div",null,_)}const h=t(r,[["render",i],["__file","2.gitlab.html.vue"]]);export{h as default};
