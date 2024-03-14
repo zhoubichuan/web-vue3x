@@ -12,8 +12,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "20.0.0"
-      - name: Install npm dependencies
+      - name: Install pnpm
         run: npm install pnpm -g
+      - name: Install npm dependencies
+        run: pnpm install
       - name: Run build task
         run: pnpm run build
       - name: copy file  via ssh key

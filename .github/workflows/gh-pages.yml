@@ -18,6 +18,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "20.0.0"
+      - name: Install pnpm
+        run: npm install pnpm -g
       # 生成静态文件
       - name: Build
         run: pnpm install && pnpm run build
