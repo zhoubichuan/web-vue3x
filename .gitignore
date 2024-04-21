@@ -1,4 +1,8 @@
 node_modules
-.cache
-.temp
-web-vue3
+.vscode
+web-vue3x
+script/demo.vue
+script/index.js
+script/index.d.ts
+script/package.json
+script/README.md
