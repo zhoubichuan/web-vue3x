@@ -1,7 +1,7 @@
 export default {
     '/base/': [
         {
-            text: 'engine',
+            text: 'Vue 的工程化',
             items: [
                 {
                     text: '1.index',
@@ -62,7 +62,7 @@ export default {
             ]
         },
         {
-            text: 'project',
+            text: 'Vue 功能模块',
             items: [
                 {
                     text: '1.index',
@@ -123,38 +123,50 @@ export default {
             ]
         },
         {
-            text: 'vue3',
+            text: 'Vue3.x 全家桶',
             items: [
                 {
-                    text: '1.index',
+                    text: '目录',
                     link: '/base/vue3.x/1.index'
                 },
                 {
-                    text: '1.vue-cli3',
+                    text: 'Vue/cli3',
                     link: '/base/vue3.x/1.vue-cli3'
                 },
                 {
-                    text: '2.vue',
+                    text: 'Vue3.x的api',
                     link: '/base/vue3.x/2.vue'
                 },
                 {
-                    text: '2.vue1',
+                    text: 'Vue3.x的通信',
                     link: '/base/vue3.x/2.vue1'
                 },
                 {
-                    text: '3.vue-router',
+                    text: 'Vue3.x的生命周期',
+                    link: '/base/vue3.x/2.vue1'
+                },
+                {
+                    text: 'Vue3.x的动画',
+                    link: '/base/vue3.x/2.vue1'
+                },
+                {
+                    text: 'Vue3.x的组件',
+                    link: '/base/vue3.x/2.vue1'
+                },
+                {
+                    text: 'Vue-Router 4.x',
                     link: '/base/vue3.x/3.vue-router'
                 },
                 {
-                    text: '4.vuex',
+                    text: 'Vuex 4.x',
                     link: '/base/vue3.x/4.vuex'
                 },
                 {
-                    text: '5.ui',
+                    text: 'ElementPlus',
                     link: '/base/vue3.x/5.ui'
                 },
                 {
-                    text: '6.vueuse',
+                    text: 'VueUse工具库',
                     link: '/base/vue3.x/6.vueuse'
                 },
             ]
@@ -162,7 +174,7 @@ export default {
     ],
     '/senior/': [
         {
-            text: 'micro',
+            text: '微前端',
             items: [
                 {
                     text: '1.index',
@@ -224,7 +236,7 @@ export default {
             ]
         },
         {
-            text: 'component',
+            text: '组件开发',
             items: [
                 {
                     text: '1.index',
@@ -307,7 +319,7 @@ export default {
     ],
     '/source/': [
         {
-            text: 'vue-cli3.x',
+            text: 'Vue/cli 3.x',
             items: [
                 {
                     text: '1.index',
@@ -316,18 +328,18 @@ export default {
             ]
         },
         {
-            text: 'vue3.x',
+            text: 'Vue 3.x',
             items: [
                 {
-                    text: '1.index',
+                    text: 'vue3.x源码概览',
                     link: '/source/vue3.x/1.index'
                 },
                 {
-                    text: '2.initGlobalAPI',
+                    text: '项目中',
                     link: '/source/vue3.x/2.initGlobalAPI'
                 },
                 {
-                    text: '3.initMixin',
+                    text: 'vue引入',
                     link: '/source/vue3.x/3.initMixin'
                 },
                 {
@@ -377,7 +389,7 @@ export default {
             ]
         },
         {
-            text: 'vue-router3.x',
+            text: 'Vue-Router 3.x',
             items: [
                 {
                     text: '1.index',
@@ -390,7 +402,7 @@ export default {
             ]
         },
         {
-            text: 'vuex3.x',
+            text: 'Vuex 3.x',
             items: [
                 {
                     text: '1.index',
@@ -407,7 +419,7 @@ export default {
             ]
         },
         {
-            text: 'vuex4.x',
+            text: 'Vuex 4.x',
             items: [
                 {
                     text: '1.index',
@@ -424,7 +436,7 @@ export default {
             ]
         },
         {
-            text: 'vue-router4.x',
+            text: 'Vue-Router 4.x',
             items: [
                 {
                     text: '1.index',

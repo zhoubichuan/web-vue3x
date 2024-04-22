@@ -27,7 +27,7 @@
     "node": ">=14"
   },
   "scripts": {
-    "dev": "rimraf -G ./script/demo.vue && vitepress dev",
+    "dev": "vitepress dev",
     "build": "npm run build:es && npm run build:docs",
     "build:es": "rimraf -G ./script/src && tsc -b -f",
     "build:docs": "rimraf -G ./script/demo.vue &&  vitepress build",
