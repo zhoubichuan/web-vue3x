@@ -1,1 +1,0 @@
-import{_ as r,o as t,c as n,b as e,d as a}from"./app.8390b8a1.js";const s={},c=e("h1",{id:"render",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#render","aria-hidden":"true"},"#"),a(" render")],-1),o=[c];function _(d,i){return t(),n("div",null,o)}const l=r(s,[["render",_],["__file","5.eventsMixin.html.vue"]]);export{l as default};
