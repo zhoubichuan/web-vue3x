@@ -1,7 +1,7 @@
 export default {
     '/base/': [
         {
-            text: 'Vue 的工程化',
+            text: 'Vue 3.x的工程化',
             items: [
                 {
                     text: '1.index',
@@ -62,7 +62,7 @@ export default {
             ]
         },
         {
-            text: 'Vue 功能模块',
+            text: 'Vue 3.x功能模块',
             items: [
                 {
                     text: '1.index',
@@ -135,23 +135,23 @@ export default {
                 },
                 {
                     text: 'Vue3.x的api',
-                    link: '/base/vue3.x/2.vue'
+                    link: '/base/vue3.x/2.vue-api'
                 },
                 {
                     text: 'Vue3.x的通信',
-                    link: '/base/vue3.x/2.vue1'
+                    link: '/base/vue3.x/2.vue-message'
                 },
                 {
                     text: 'Vue3.x的生命周期',
-                    link: '/base/vue3.x/2.vue1'
+                    link: '/base/vue3.x/2.vue-lifecycle'
                 },
                 {
                     text: 'Vue3.x的动画',
-                    link: '/base/vue3.x/2.vue1'
+                    link: '/base/vue3.x/2.vue-transition'
                 },
                 {
                     text: 'Vue3.x的组件',
-                    link: '/base/vue3.x/2.vue1'
+                    link: '/base/vue3.x/2.vue-component'
                 },
                 {
                     text: 'Vue-Router 4.x',
