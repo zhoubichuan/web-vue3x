@@ -3,7 +3,7 @@
   <ChildComponent :parentData="parentData" />
 </template>
  
-<script setup ts>
+<script setup >
 import { ref } from 'vue';
 import ChildComponent from './ChildComponent.vue';
  

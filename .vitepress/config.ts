@@ -67,7 +67,7 @@ export default {
             },
         },
         socialLinks: [
-            { icon: 'github', link: 'https://web-vue3.x/zhoubichuan/web-vue3x/' },
+            { icon: 'github', link: 'https://github.com/zhoubichuan/web-vue3x/' },
         ],
 
         // editLink: {
@@ -78,7 +78,7 @@ export default {
         footer: {
             license: {
                 text: '版权声明',
-                link: 'https://web-vue3.x/zhoubichuan/web-vue3x/'
+                link: 'https://github.com/zhoubichuan/web-vue3x/'
             },
             copyright: '本中文文档采用 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议  (CC BY-NC-SA 4.0) 进行许可。'
         }

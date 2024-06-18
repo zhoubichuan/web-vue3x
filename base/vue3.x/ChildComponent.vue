@@ -2,7 +2,7 @@
   <div>{{ parentData }}</div>
 </template>
 
-<script setup ts>
+<script setup >
 const { parentData } = defineProps({
   parentData: {
     type: String,

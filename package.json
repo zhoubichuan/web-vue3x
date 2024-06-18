@@ -1,8 +1,8 @@
 {
-  "private": true,
+  "private": false,
   "name": "web-vue3.x",
-  "version": "1.0.3",
-  "description": "为vitepress添加更专业的Demo演示能力",
+  "version": "1.0.0",
+  "description": "vue3.x技术文档",
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",
@@ -15,11 +15,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://web-vue3.x/zhoubichuan/web-vue3x.git"
+    "url": "git+https://github.com/zhoubichuan/web-vue3x.git"
   },
-  "homepage": "https://web-vue3.x/zhoubichuan/web-vue3x",
+  "homepage": "https://github.com/zhoubichuan/web-vue3x",
   "bugs": {
-    "url": "https://web-vue3.x/zhoubichuan/web-vue3x/issues"
+    "url": "https://github.com/zhoubichuan/web-vue3x/issues"
   },
   "author": "Wang Yongcun",
   "license": "MIT",
