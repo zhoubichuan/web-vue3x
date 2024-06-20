@@ -4,6 +4,7 @@ import sidebar from './sidebar'
 export default {
     base: "/web-vue3x/", // 部署站点的基础路径
     srcDir: "./",
+    srcExclude:['vue/**', '**/README.md'],
     outDir: './web-vue3x',
     lang: 'zh-CN',
     title: 'web-vue3.x',    // 标题
