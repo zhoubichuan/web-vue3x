@@ -331,7 +331,7 @@ export default {
             text: 'Vue 3.x',
             items: [
                 {
-                    text: 'vue3.x源码概览',
+                    text: '源码概览',
                     link: '/src/source/vue3.x/1.index'
                 },
                 {
