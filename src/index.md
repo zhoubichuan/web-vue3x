@@ -2,6 +2,10 @@
 layout: home
 
 hero:
+  name: VitePress
+  image:
+    src: /logo.png
+    alt: VitePress
   text: web-vue3.x
   tagline: 为vitepress添加更专业的Demo演示能力
   actions:
@@ -10,7 +14,10 @@ hero:
       link: /base/engine/1.index
     - theme: alt
       text: 在GitHub上查看
-      link: https://github.com/zhoubichuan/web-vue3x/"
+      link: https://github.com/zhoubichuan/web-vue3x"
+    - theme: sponsor
+      text: 搭建导航
+      link: /nav/
 features:
   - icon: ⚡️
     title: Vue的工程化
@@ -21,4 +28,18 @@ features:
   - icon: 🛠️
     title: Vue基础知识
     details: 掌握Vue2.x全家桶和Vue3.x全家桶中重点知识，对相关官方文档进行一些知识的补充，全面提升Vue的基础知识能力
+    link: https://vitejs.cn/
+    linkText: Vite
 ---
+
+<style>
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
+
+
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
+  --vp-home-hero-image-filter: blur(40px);
+}
+
+</style>
