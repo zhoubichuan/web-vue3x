@@ -1,4 +1,4 @@
-// import demoblock from './demoblock';
+import demoblock from './demoblock';
 import nav from './nav'
 import sidebar from './sidebar'
 import { defineConfig } from 'vitepress'
@@ -26,7 +26,7 @@ export default defineConfig({
 
 
   //启用深色模式
-  appearance:'dark',
+  // appearance:'dark',
 
   //markdown配置
   markdown: {
@@ -39,7 +39,7 @@ export default defineConfig({
     //时间线 
     config: (md) => {
       md.use(timeline);
-      // md.use(demoblock)
+      md.use(demoblock)
     },
 
     // 开启图片懒加载
@@ -72,29 +72,29 @@ export default defineConfig({
 
 
     //本地搜索
-    search: {
-      provider: 'local',
-      options: {
-        locales: {
-          zh: {
-            translations: {
-              button: {
-                buttonText: '搜索文档',
-                buttonAriaLabel: '搜索文档'
-              },
-              modal: {
-                noResultsText: '无法找到相关结果',
-                resetButtonTitle: '清除查询条件',
-                footer: {
-                  selectText: '选择',
-                  navigateText: '切换'
-                },
-              },
-            },
-          },
-        },
-      },
-    },
+    // search: {
+    //   provider: 'local',
+    //   options: {
+    //     locales: {
+    //       zh: {
+    //         translations: {
+    //           button: {
+    //             buttonText: '搜索文档',
+    //             buttonAriaLabel: '搜索文档'
+    //           },
+    //           modal: {
+    //             noResultsText: '无法找到相关结果',
+    //             resetButtonTitle: '清除查询条件',
+    //             footer: {
+    //               selectText: '选择',
+    //               navigateText: '切换'
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
 
 
 
