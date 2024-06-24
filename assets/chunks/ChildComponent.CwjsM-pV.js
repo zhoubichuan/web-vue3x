@@ -1,0 +1,1 @@
+import{o as a,c as e,t as n}from"./framework.BjRxMqrG.js";const c={__name:"ChildComponent",props:{parentData:{type:String,default:""}},setup(t){return(r,o)=>(a(),e("div",null,n(t.parentData),1))}};export{c as default};
