@@ -1,0 +1,1 @@
+import t from"./ChildComponent.vn1ahQFQ.js";import{s as e,o as r,b as n}from"./framework.DScHNprs.js";const m={__name:"1.1",setup(o){const a=e("父组件数据");return(s,c)=>(r(),n(t,{parentData:a.value},null,8,["parentData"]))}};export{m as default};
