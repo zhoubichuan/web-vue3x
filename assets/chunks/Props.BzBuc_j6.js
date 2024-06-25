@@ -1,0 +1,1 @@
+import t from"./PropsChildComponent.DM4WlENE.js";import{s as r,o as e,b as o}from"./framework.BjRxMqrG.js";const m={__name:"Props",setup(n){const a=r("父组件数据");return(s,p)=>(e(),o(t,{parentData:a.value},null,8,["parentData"]))}};export{m as default};
