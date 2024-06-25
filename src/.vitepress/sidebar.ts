@@ -179,7 +179,7 @@ export default {
             ]
         }
     ],
-    '/senior/': [
+    '/senior/1.micro': [
         {
             text: '微前端',
             items: [
@@ -213,6 +213,8 @@ export default {
                 },
             ]
         },
+    ],
+    '/senior/3.deploy': [
         {
             text: 'deploy',
             items: [
@@ -242,6 +244,8 @@ export default {
                 },
             ]
         },
+    ],
+    '/senior/4.component': [
         {
             text: '组件开发',
             items: [
@@ -324,7 +328,7 @@ export default {
             ]
         }
     ],
-    '/source/': [
+    '/source/vue-cli3.x': [
         {
             text: 'Vue/cli 3.x',
             items: [
@@ -334,6 +338,8 @@ export default {
                 },
             ]
         },
+    ],
+    '/source/vue3.x': [
         {
             text: 'Vue 3.x',
             items: [
@@ -395,6 +401,8 @@ export default {
                 },
             ]
         },
+    ],
+    '/source/vue-router3.x': [
         {
             text: 'Vue-Router 3.x',
             items: [
@@ -408,6 +416,8 @@ export default {
                 },
             ]
         },
+    ],
+    '/source/vuex3.x': [
         {
             text: 'Vuex 3.x',
             items: [
@@ -425,6 +435,8 @@ export default {
                 },
             ]
         },
+    ],
+    '/source/vuex4.x': [
         {
             text: 'Vuex 4.x',
             items: [
@@ -442,6 +454,8 @@ export default {
                 },
             ]
         },
+    ],
+    '/source/vue-router4.x': [
         {
             text: 'Vue-Router 4.x',
             items: [
