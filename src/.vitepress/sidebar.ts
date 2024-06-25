@@ -1,7 +1,10 @@
+import { groupCollapsed } from "console";
+
 export default {
-    '/base/': [
+    '/base/engine/': [
         {
             text: 'Vue 3.x的工程化',
+            // collapsed: false,
             items: [
                 {
                     text: '1.index',
@@ -60,7 +63,9 @@ export default {
                     link: '/base/engine/13.deploy',
                 },
             ]
-        },
+        }
+    ],
+    '/base/project/': [
         {
             text: 'Vue 3.x功能模块',
             items: [
@@ -121,7 +126,9 @@ export default {
                     link: '/base/project/13.video'
                 },
             ]
-        },
+        }
+    ],
+    '/base/vue3.x/': [
         {
             text: 'Vue3.x 全家桶',
             items: [
@@ -130,43 +137,43 @@ export default {
                     link: '/base/vue3.x/1.index'
                 },
                 {
-                    text: 'Vue/cli3',
+                    text: '一.Vue/cli 3.x',
                     link: '/base/vue3.x/1.vue-cli3'
                 },
                 {
-                    text: 'Vue3.x的api',
+                    text: '二.Vue3.x（基础）',
                     link: '/base/vue3.x/2.vue-api'
                 },
                 {
-                    text: 'Vue3.x的通信',
+                    text: '二.Vue3.x（组件通信）',
                     link: '/base/vue3.x/2.vue-message'
                 },
                 {
-                    text: 'Vue3.x的生命周期',
+                    text: '二.Vue3.x（生命周期）',
                     link: '/base/vue3.x/2.vue-lifecycle'
                 },
                 {
-                    text: 'Vue3.x的动画',
+                    text: '二.Vue3.x（动画）',
                     link: '/base/vue3.x/2.vue-transition'
                 },
                 {
-                    text: 'Vue3.x的组件',
+                    text: '二.Vue3.x（组件）',
                     link: '/base/vue3.x/2.vue-component'
                 },
                 {
-                    text: 'Vue-Router 4.x',
+                    text: '三.Vue-Router 4.x',
                     link: '/base/vue3.x/3.vue-router'
                 },
                 {
-                    text: 'Vuex 4.x',
+                    text: '四.Vuex 4.x',
                     link: '/base/vue3.x/4.vuex'
                 },
                 {
-                    text: 'ElementPlus',
+                    text: '五.UI库',
                     link: '/base/vue3.x/5.ui'
                 },
                 {
-                    text: 'VueUse工具库',
+                    text: '六.VueUse',
                     link: '/base/vue3.x/6.vueuse'
                 },
             ]
