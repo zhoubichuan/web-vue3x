@@ -354,6 +354,7 @@ function baseCreateRenderer(
 
   // Note: functions inside this closure should use `const xxx = () => {}`
   // style in order to prevent being inlined by minifiers.
+  // #region snippet3
   const patch: PatchFn = (
     n1,
     n2,
@@ -470,7 +471,7 @@ function baseCreateRenderer(
       setRef(ref, n1 && n1.ref, parentSuspense, n2 || n1, !n2)
     }
   }
-
+  // #endregion snippet3
   const processText: ProcessTextOrCommentFn = (n1, n2, container, anchor) => {
     if (n1 == null) {
       hostInsert(
@@ -572,7 +573,7 @@ function baseCreateRenderer(
     }
     hostRemove(anchor!)
   }
-
+  // #region snippet4
   const processElement = (
     n1: VNode | null,
     n2: VNode,
@@ -608,7 +609,7 @@ function baseCreateRenderer(
       )
     }
   }
-
+  // #endregion snippet4
   const mountElement = (
     vnode: VNode,
     container: RendererElement,
@@ -799,7 +800,7 @@ function baseCreateRenderer(
       )
     }
   }
-
+  // #region snippet5
   const patchElement = (
     n1: VNode,
     n2: VNode,
@@ -953,7 +954,7 @@ function baseCreateRenderer(
       }, parentSuspense)
     }
   }
-
+  // #endregion snippet5
   // The fast path for blocks.
   const patchBlockChildren: PatchBlockChildrenFn = (
     oldChildren,
@@ -1752,6 +1753,7 @@ function baseCreateRenderer(
   }
 
   // can be all-keyed or mixed
+  // #region snippet6
   const patchKeyedChildren = (
     c1: VNode[],
     c2: VNodeArrayChildren,
@@ -1991,7 +1993,7 @@ function baseCreateRenderer(
       }
     }
   }
-
+  // #endregion snippet6
   const move: MoveFn = (
     vnode,
     container,
