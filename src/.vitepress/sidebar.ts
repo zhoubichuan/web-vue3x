@@ -169,7 +169,7 @@ export default {
                     link: '/base/vue3.x/4.vuex'
                 },
                 {
-                    text: '五.UI库',
+                    text: '五.ElementPlus',
                     link: '/base/vue3.x/5.ui'
                 },
                 {

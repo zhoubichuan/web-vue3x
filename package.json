@@ -1,6 +1,7 @@
 {
   "name": "web-vue3x",
   "version": "1.0.0",
+  "type":"module",
   "description": "vue3.x技术文档",
   "main": "index.js",
   "author": "zhoubichaun@icloud.com",
