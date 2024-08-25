@@ -1,0 +1,1 @@
+import{o as a,c as e,t as n}from"./framework.D403qmi6.js";const s={__name:"PropsChildComponent",props:{parentData:{type:String,default:""}},setup(t){return(r,o)=>(a(),e("div",null,n(t.parentData),1))}};export{s as default};

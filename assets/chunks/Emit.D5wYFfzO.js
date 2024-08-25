@@ -1,1 +1,0 @@
-import t from"./EmitChildComponen.DCBJu0tQ.js";import{s as e,o as r,b as n}from"./framework.BjRxMqrG.js";const m={__name:"Emit",setup(o){const a=e("父组件数据");return(s,c)=>(r(),n(t,{parentData:a.value},null,8,["parentData"]))}};export{m as default};

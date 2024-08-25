@@ -1,0 +1,1 @@
+import{o as l,c as o,j as e,t as a,F as r}from"./framework.D403qmi6.js";const m={__name:"AttrsGrandCompone",props:["a","x","y","updateA"],setup(t){return(u,n)=>(l(),o(r,null,[e("h4",null,"a："+a(t.a),1),e("h4",null,"x："+a(t.x),1),e("h4",null,"y："+a(t.y),1),e("button",{onClick:n[0]||(n[0]=s=>t.updateA(6))},"给爷爷传递数据")],64))}};export{m as default};

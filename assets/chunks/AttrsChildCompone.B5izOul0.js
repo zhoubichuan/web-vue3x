@@ -1,0 +1,1 @@
+import r from"./AttrsGrandCompone.DZigHUAW.js";import{o,b as e,ax as s,aH as t}from"./framework.D403qmi6.js";const _={__name:"AttrsChildCompone",setup(n){return(a,p)=>(o(),e(r,s(t(a.$attrs)),null,16))}};export{_ as default};
