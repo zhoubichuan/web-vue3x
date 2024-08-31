@@ -141,6 +141,10 @@ export default {
                     link: '/base/vue3.x/1.vue-cli3'
                 },
                 {
+                    text: '二.Vue3.x（格式）',
+                    link: '/base/vue3.x/2.vue-format'
+                },
+                {
                     text: '二.Vue3.x（基础）',
                     link: '/base/vue3.x/2.vue-api'
                 },

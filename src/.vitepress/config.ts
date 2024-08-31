@@ -5,12 +5,12 @@ import { defineConfig } from 'vitepress'
 
 //命令集：pnpm add -D vitepress vue less sass @mdit-vue/shared vitepress-markdown-timeline medium-zoom vitepress-plugin-comment-with-giscus
 
-import timeline from "vitepress-markdown-timeline"; 
+import timeline from "vitepress-markdown-timeline";
 
 export default defineConfig({
   base: "/web-vue3x/", // 部署站点的基础路径
   srcDir: "./",
-  srcExclude:['vue/**', '**/README.md'],
+  srcExclude: ['vue/**', '**/README.md'],
   outDir: '../web-vue3x',
   lang: 'zh-CN',
   title: 'web-vue3.x',    // 标题
@@ -18,7 +18,7 @@ export default defineConfig({
   lastUpdated: true, // 上次更新时间
   // #region fav
   head: [
-    ['link',{ rel: 'icon', href: '/logo.png'}],
+    ['link', { rel: 'icon', href: '/logo.png' }],
   ],
   // #endregion fav
 
@@ -32,9 +32,9 @@ export default defineConfig({
   markdown: {
     headers: {
       level: [0, 0]
-  },
+    },
     //行号显示
-    lineNumbers: true, 
+    lineNumbers: true,
 
     //时间线 
     config: (md) => {
@@ -49,7 +49,7 @@ export default defineConfig({
 
   },
 
-  
+
 
 
   //主题配置
@@ -113,15 +113,15 @@ export default defineConfig({
 
 
     //侧边栏文字更改(移动端)
-    sidebarMenuLabel:'目录',
+    sidebarMenuLabel: '目录',
 
     //返回顶部文字修改(移动端)
-    returnToTopLabel:'返回顶部',
+    returnToTopLabel: '返回顶部',
 
 
     //大纲显示2-3级标题
     outline: {
-      level: [2,3],
+      level: [2, 3],
       label: '当前页大纲'
     },
 
@@ -135,13 +135,13 @@ export default defineConfig({
 
 
     //自定义上下页名
-    docFooter: { 
-      prev: '上一页', 
-      next: '下一页', 
-    }, 
+    docFooter: {
+      prev: '上一页',
+      next: '下一页',
+    },
 
   },
 
-  
-  
+
+
 })
