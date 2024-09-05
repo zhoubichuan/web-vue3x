@@ -1,1 +1,0 @@
-import{o as i,c as o,t as s}from"./framework.D403qmi6.js";const p={__name:"EmitChildComponen",props:{parentData:{type:String,default:""}},emits:["send"],setup(t,{emit:e}){const n=e;function a(){n("send","child-message")}return(c,r)=>(i(),o("div",{onClick:a},s(t.parentData),1))}};export{p as default};

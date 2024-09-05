@@ -1,1 +1,0 @@
-import t from"./EmitChildComponen.f2CgN2PL.js";import{s as e,o as r,b as n}from"./framework.D403qmi6.js";const m={__name:"Emit",setup(o){const a=e("父组件数据");return(s,c)=>(r(),n(t,{parentData:a.value},null,8,["parentData"]))}};export{m as default};
