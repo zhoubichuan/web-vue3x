@@ -50,13 +50,13 @@ export default defineConfig({
   },
   //主题配置
   themeConfig: {
+    lastUpdatedText: '最后更新',
     //左上角logo
-    //logo: '/logo.png',
-    //logo: 'https://vitejs.cn/vite3-cn/logo-with-shadow.png', //远程引用
-    //siteTitle: false, //标题隐藏
+    logo: '/logo.png',
+    siteTitle: false, //标题隐藏
 
     //设置站点标题 会覆盖title
-    //siteTitle: 'Hello World',
+    // siteTitle: 'Hello World',
 
     //导航栏
     nav,
@@ -116,10 +116,10 @@ export default defineConfig({
 
 
     //编辑本页
-    //editLink: {
-    //  pattern: 'https://github.com/账户名/仓库名/edit/main/docs/:path',
-    //  text: '在GitHub编辑本页'
-    //},
+    editLink: {
+      pattern: 'https://github.com/zhoubichuan/web-vue3x/edit/master/src/:path',
+      text: '在GitHub编辑本页'
+    },
 
     //自定义上下页名
     docFooter: {
