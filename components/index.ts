@@ -1,33 +1,33 @@
-import Pagination from './pagination/index'
+// import Pagination from './pagination/index'
 // import Preview from './preview/index'
-import Layout from './layout/index'
+// import Layout from './layout/index'
 // import Autocomplete from './autocomplete/index'
 // import Dropdown from './dropdown/index'
 // import DropdownMenu from './dropdown-menu/index'
 // import DropdownItem from './dropdown-item/index'
-import Menu from './menu/index'
+// import Menu from './menu/index'
 // import Submenu from './submenu/index'
 // import MenuItem from './menu-item/index'
 // import MenuItemGroup from './menu-item-group/index'
 import Input from './input/index'
 // import InputNumber from './input-number/index'
-import Radio from './radio/index'
-import RadioGroup from './radio-group/index'
-import RadioButton from './radio-button/index'
-import Checkbox from './checkbox/index'
+// import Radio from './radio/index'
+// import RadioGroup from './radio-group/index'
+// import RadioButton from './radio-button/index'
+// import Checkbox from './checkbox/index'
 // import CheckboxButton from './checkbox-button/index'
 // import CheckboxGroup from './checkbox-group/index'
-import Switch from './switch/index'
-import Select from './select/index'
+// import Switch from './switch/index'
+// import Select from './select/index'
 // import Option from './option/index'
 // import OptionGroup from './option-group/index'
-import Button from './button/index'
+// import Button from './button/index'
 // import ButtonGroup from './button-group/index'
-import Search from './search/index'
-import Dialog from './dialog/index'
+// import Search from './search/index'
+// import Dialog from './dialog/index'
 // import Modal from './modal/index'
 // import CommonForm from './common-form/index'
-import Table from './table/index'
+// import Table from './table/index'
 // import TableColumn from './table-column/index'
 // import DatePicker from './date-picker/index'
 // import TimeSelect from './time-select/index'
@@ -37,28 +37,28 @@ import Table from './table/index'
 // import MessageBox from './message-box/index'
 // import Breadcrumb from './breadcrumb/index'
 // import BreadcrumbItem from './breadcrumb-item/index'
-import Form from './form/index'
-import FormItem from './form-item/index'
-import formSearch from './form-search/index'
-import FormSubmit from './form-submit/index'
-import FormView from './form-view/index'
+// import Form from './form/index'
+// import FormItem from './form-item/index'
+// import formSearch from './form-search/index'
+// import FormSubmit from './form-submit/index'
+// import FormView from './form-view/index'
 // import Tabs from './tabs/index'
 // import TabPane from './tab-pane/index'
-import Tag from './tag/index'
-// import Tree from './tree/index'
-import Alert from './alert/index'
+// import Tag from './tag/index'
+import Tree from './tree/index'
+// import Alert from './alert/index'
 // import Notification from './notification/index'
-import Slider from './slider/index'
+// import Slider from './slider/index'
 // import Loading from './loading/index'
 // import Icon from './icon/index'
 // import Row from './row/index'
 // import Col from './col/index'
-import Upload from './upload/index'
+// import Upload from './upload/index'
 // import Progress from './progress/index'
 // import Spinner from './spinner/index'
 // import Message from './message/index'
 // import Badge from './badge/index'
-import Card from './card/index'
+// import Card from './card/index'
 // import Rate from './rate/index'
 // import Steps from './steps/index'
 // import Step from './step/index'
@@ -97,226 +97,225 @@ import Card from './card/index'
 // import Result from './result/index'
 
 const components = [
-  Pagination,
-//   Preview,
-  Layout,
-//   Autocomplete,
-//   Dropdown,
-//   DropdownMenu,
-//   DropdownItem,
-  Menu,
-  
-//   Submenu,
-//   MenuItem,
-//   MenuItemGroup,
+  // Pagination,
+  // Preview,
+  // Layout,
+  // Autocomplete,
+  // Dropdown,
+  // DropdownMenu,
+  // DropdownItem,
+  // Menu,
+  // Submenu,
+  // MenuItem,
+  // MenuItemGroup,
   Input,
-//   InputNumber,
-  Radio,
-  RadioGroup,
-  RadioButton,
-  Checkbox,
-//   CheckboxButton,
-//   CheckboxGroup,
-  Switch,
-  Select,
-//   Option,
-//   OptionGroup,
-  Button,
-//   Search,
-  Dialog,
-  Slider,
-  Search,
-//   Dialog,
-//   Modal,
-//   ButtonGroup,
-//   CommonForm,
-  Table,
-//   TableColumn,
-//   DatePicker,
-//   TimeSelect,
-//   TimePicker,
-//   Popover,
-//   Tooltip,
-//   Breadcrumb,
-//   BreadcrumbItem,
-  Form,
-  FormItem,
-  formSearch,
-  FormSubmit,
-  FormView,
-//   Tabs,
-//   TabPane,
-  Tag,
-//   Tree,
-  Alert,
-//   Icon,
-//   Row,
-//   Col,
-  Upload,
-//   Progress,
-//   Spinner,
-//   Badge,
-  Card,
-//   Rate,
-//   Steps,
-//   Step,
-//   Carousel,
-//   Scrollbar,
-//   CarouselItem,
-//   Collapse,
-//   CollapseItem,
-//   Cascader,
-//   ColorPicker,
-//   Transfer,
-//   Container,
-//   Header,
-//   Aside,
-//   Main,
-//   Footer,
-//   Timeline,
-//   TimelineItem,
-//   Link,
-//   Divider,
-//   Image,
-//   Calendar,
-//   Backtop,
-//   PageHeader,
-//   CascaderPanel,
-//   Avatar,
-//   Drawer,
-//   Statistic,
-//   Popconfirm,
-//   Skeleton,
-//   SkeletonItem,
-//   Empty,
-//   Descriptions,
-//   DescriptionsItem,
-//   Result
+  // InputNumber,
+  // Radio,
+  // RadioGroup,
+  // RadioButton,
+  // Checkbox,
+  // CheckboxButton,
+  // CheckboxGroup,
+  // Switch,
+  // Select,
+  // Option,
+  // OptionGroup,
+  // Button,
+  // Search,
+  // Dialog,
+  // Slider,
+  // Search,
+  // Dialog,
+  // Modal,
+  // ButtonGroup,
+  // CommonForm,
+  // Table,
+  // TableColumn,
+  // DatePicker,
+  // TimeSelect,
+  // TimePicker,
+  // Popover,
+  // Tooltip,
+  // Breadcrumb,
+  // BreadcrumbItem,
+  // Form,
+  // FormItem,
+  // formSearch,
+  // FormSubmit,
+  // FormView,
+  // Tabs,
+  // TabPane,
+  // Tag,
+  Tree,
+  // Alert,
+  // Icon,
+  // Row,
+  // Col,
+  // Upload,
+  // Progress,
+  // Spinner,
+  // Badge,
+  // Card,
+  // Rate,
+  // Steps,
+  // Step,
+  // Carousel,
+  // Scrollbar,
+  // CarouselItem,
+  // Collapse,
+  // CollapseItem,
+  // Cascader,
+  // ColorPicker,
+  // Transfer,
+  // Container,
+  // Header,
+  // Aside,
+  // Main,
+  // Footer,
+  // Timeline,
+  // TimelineItem,
+  // Link,
+  // Divider,
+  // Image,
+  // Calendar,
+  // Backtop,
+  // PageHeader,
+  // CascaderPanel,
+  // Avatar,
+  // Drawer,
+  // Statistic,
+  // Popconfirm,
+  // Skeleton,
+  // SkeletonItem,
+  // Empty,
+  // Descriptions,
+  // DescriptionsItem,
+  // Result
 ]
 
 const install = function (app, opts = {}) {
-  components.forEach(component => {
-    app.component(component.name, component)
-  })
+  // components.forEach(component => {
+  //   app.component(component.name, component)
+  // })
 
-//   Vue.use(InfiniteScroll)
-//   Vue.use(Loading.directive)
+  // Vue.use(InfiniteScroll)
+  // Vue.use(Loading.directive)
 
-//   Vue.prototype.$ELEMENT = {
-//     size: opts.size || '',
-//     zIndex: opts.zIndex || 2000
-//   }
+  // Vue.prototype.$ELEMENT = {
+  //   size: opts.size || '',
+  //   zIndex: opts.zIndex || 2000
+  // }
 
-//   Vue.prototype.$loading = Loading.service
-//   Vue.prototype.$msgbox = MessageBox
-//   Vue.prototype.$alert = MessageBox.alert
-//   Vue.prototype.$confirm = MessageBox.confirm
-//   Vue.prototype.$prompt = MessageBox.prompt
-//   Vue.prototype.$notify = Notification
-//   Vue.prototype.$message = Message
+  // Vue.prototype.$loading = Loading.service
+  // Vue.prototype.$msgbox = MessageBox
+  // Vue.prototype.$alert = MessageBox.alert
+  // Vue.prototype.$confirm = MessageBox.confirm
+  // Vue.prototype.$prompt = MessageBox.prompt
+  // Vue.prototype.$notify = Notification
+  // Vue.prototype.$message = Message
 }
 
 
 export default {
   version: '2.15.13',
   install,
-//   Preview,
-  Layout,
-//   Loading,
-  Pagination,
-//   Autocomplete,
-//   Dropdown,
-//   DropdownMenu,
-//   DropdownItem,
-  Menu,
-//   Submenu,
-//   MenuItem,
-//   MenuItemGroup,
+  // Preview,
+  // Layout,
+  // Loading,
+  // Pagination,
+  // Autocomplete,
+  // Dropdown,
+  // DropdownMenu,
+  // DropdownItem,
+  // Menu,
+  // Submenu,
+  // MenuItem,
+  // MenuItemGroup,
   Input,
-//   InputNumber,
-  Radio,
-  RadioGroup,
-  RadioButton,
-  Checkbox,
-//   CheckboxButton,
-//   CheckboxGroup,
-  Switch,
-  Select,
-//   Option,
-//   OptionGroup,
-  Button,
-//   ButtonGroup,
-//   Search,
-  Dialog,
-  Slider,
-  Search,
-//   Dialog,
-//   Modal,
-//   CommonForm,
-  Table,
-//   TableColumn,
-//   DatePicker,
-//   TimeSelect,
-//   TimePicker,
-//   Popover,
-//   Tooltip,
-//   MessageBox,
-//   Breadcrumb,
-//   BreadcrumbItem,
-  Form,
-  FormItem,
-  formSearch,
-  FormSubmit,
-  FormView,
-//   Tabs,
-//   TabPane,
-  Tag,
-//   Tree,
-  Alert,
-//   Notification,
-//   Icon,
-//   Row,
-//   Col,
-  Upload,
-//   Progress,
-//   Spinner,
-//   Message,
-//   Badge,
-  Card,
-//   Rate,
-//   Steps,
-//   Step,
-//   Carousel,
-//   Scrollbar,
-//   CarouselItem,
-//   Collapse,
-//   CollapseItem,
-//   Cascader,
-//   ColorPicker,
-//   Transfer,
-//   Container,
-//   Header,
-//   Aside,
-//   Main,
-//   Footer,
-//   Timeline,
-//   TimelineItem,
-//   Link,
-//   Divider,
-//   Image,
-//   Calendar,
-//   Backtop,
-//   InfiniteScroll,
-//   PageHeader,
-//   CascaderPanel,
-//   Avatar,
-//   Drawer,
-//   Statistic,
-//   Popconfirm,
-//   Skeleton,
-//   SkeletonItem,
-//   Empty,
-//   Descriptions,
-//   DescriptionsItem,
-//   Result
+  // InputNumber,
+  // Radio,
+  // RadioGroup,
+  // RadioButton,
+  // Checkbox,
+  // CheckboxButton,
+  // CheckboxGroup,
+  // Switch,
+  // Select,
+  // Option,
+  // OptionGroup,
+  // Button,
+  // ButtonGroup,
+  // Search,
+  // Dialog,
+  // Slider,
+  // Search,
+  // Dialog,
+  // Modal,
+  // CommonForm,
+  // Table,
+  // TableColumn,
+  // DatePicker,
+  // TimeSelect,
+  // TimePicker,
+  // Popover,
+  // Tooltip,
+  // MessageBox,
+  // Breadcrumb,
+  // BreadcrumbItem,
+  // Form,
+  // FormItem,
+  // formSearch,
+  // FormSubmit,
+  // FormView,
+  // Tabs,
+  // TabPane,
+  // Tag,
+  Tree,
+  // Alert,
+  // Notification,
+  // Icon,
+  // Row,
+  // Col,
+  // Upload,
+  // Progress,
+  // Spinner,
+  // Message,
+  // Badge,
+  // Card,
+  // Rate,
+  // Steps,
+  // Step,
+  // Carousel,
+  // Scrollbar,
+  // CarouselItem,
+  // Collapse,
+  // CollapseItem,
+  // Cascader,
+  // ColorPicker,
+  // Transfer,
+  // Container,
+  // Header,
+  // Aside,
+  // Main,
+  // Footer,
+  // Timeline,
+  // TimelineItem,
+  // Link,
+  // Divider,
+  // Image,
+  // Calendar,
+  // Backtop,
+  // InfiniteScroll,
+  // PageHeader,
+  // CascaderPanel,
+  // Avatar,
+  // Drawer,
+  // Statistic,
+  // Popconfirm,
+  // Skeleton,
+  // SkeletonItem,
+  // Empty,
+  // Descriptions,
+  // DescriptionsItem,
+  // Result
 }

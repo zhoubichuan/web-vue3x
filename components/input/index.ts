@@ -1,4 +1,4 @@
-import VueTree from './src/vue-tree.vue'
+import VueTree from './src/input.vue'
 /* istanbul ignore next */
 VueTree.install = function (Vue) {
   Vue.component(VueTree.name, VueTree)

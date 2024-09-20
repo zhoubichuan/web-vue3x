@@ -1,7 +1,7 @@
 import DefaultTheme from 'vitepress/theme'; //引入默认主题
 // import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-// import WebElementPlus from '../../../components/index.js'
+import VueUI from '../../../components/index.ts'
 import {
     NaiveUIContainer
 } from '@vitepress-demo-preview/component'
@@ -12,7 +12,7 @@ export default {
     ...DefaultTheme,
     enhanceApp({ app }) {
         // app.use(ElementPlus);
-        // app.use(WebElementPlus);
+        app.use(VueUI);
         app.component('demo-preview', NaiveUIContainer)
     }
 }
