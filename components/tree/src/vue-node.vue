@@ -3,9 +3,9 @@
         <li class="vue-node-single">
             <!-- 根节点 -->
             <div v-if="level === 1" :class="['root-node', 'node-level-' + level]">
-                <slot name="root" :row="currentData" :handleExpand="handleExpand">
+                <slot name="root" :row="currentData" :handleExpand="handleExpand" :expand="currentData.expand">
                     <div class="root-content">
-                        <div @click="handleExpand">
+                        <div class="expand-wrapper" @click="handleExpand">
                             <div class="expand-status">
                                 <div class="tips">
                                     <img class="close" :src="images[!currentData.expand ? 0 : 1]" />
@@ -19,15 +19,17 @@
                         <vue-input class="search" v-model="name" placeholder="请输入试卷名称" @change="request" />
                     </div>
                 </slot>
-                <template v-if="currentData.expand">
-                    <tree-node class="child-node" v-for="(item, index) in currentData.children" :key="index"
-                        :data="item" :level="level + 1" />
-                </template>
+                <transition name="dropdown" mode="out-in">
+                    <div v-if="currentData.expand">
+                        <tree-node class="child-node" v-for="(item, index) in currentData.children" :key="index"
+                            :data="item" :level="level + 1" />
+                    </div>
+                </transition>
             </div>
             <!-- 分支节点 -->
             <div v-else-if="currentData.children && currentData.children.length"
                 :class="['branch-node', 'node-level-' + level]">
-                <slot name="branch" :row="currentData" :handleExpand="handleExpand">
+                <slot name="branch" :row="currentData" :handleExpand="handleExpand" :expand="currentData.expand">
                     <div class="branch-content node-content" @click="handleExpand">
                         <div class="expand-status">
                             <div class="tips">
@@ -39,13 +41,15 @@
                         </div>
                     </div>
                 </slot>
-                <template v-if="currentData.expand">
-                    <tree-node class="child-node" v-for="(item, index) in currentData.children" :key="index"
-                        :data="item" :level="level + 1" />
-                </template>
+                <transition name="dropdown" mode="out-in">
+                    <div v-if="currentData.expand">
+                        <tree-node class="child-node" v-for="(item, index) in currentData.children" :key="index"
+                            :data="item" :level="level + 1" />
+                    </div>
+                </transition>
             </div>
             <!-- 叶子节点 -->
-            <div v-else class="leaf-node">
+            <div v-else :class="['leaf-node', 'node-level-' + level]">
                 <slot name="leaf" :row="currentData">
                     <div class="leaf-content node-content">
                         <div class="text">
@@ -64,7 +68,7 @@
 </template>
 
 <script lang="ts" setup name="TreeNode">
-import { defineProps, defineOptions, defineEmits, ref } from 'vue'
+import { defineProps, defineOptions, defineEmits, ref, Transition } from 'vue'
 import VueInput from '@/vue-components/input/index'
 const { data, level } = defineProps({
     data: {
@@ -103,11 +107,28 @@ export default {
     name: 'TreeNode'
 };
 </script>
+<style>
+.dropdown-enter-active,
+.dropdown-leave-active {
+    transition: all 0.3s ease;
+}
+
+.dropdown-enter-from,
+.dropdown-leave-to {
+    opacity: 0;
+}
+</style>
 <style lang="scss">
 .vue-node {
     width: 100%;
     padding: 0;
     margin: 0;
+    padding-right: 0;
+    margin-bottom: 20px;
+
+    &.child-node {
+        margin-bottom: 0;
+    }
 
     .vue-node-single {
         padding: 0;
@@ -119,7 +140,6 @@ export default {
             .root-content {
                 display: inline-block;
                 width: 100%;
-                background: #FFFFFF;
                 line-height: 72px;
                 height: 85px;
                 border: 1px solid rgba(255, 255, 255, 0.2);
@@ -127,59 +147,75 @@ export default {
                 border-radius: 12px 12px 12px 12px;
                 position: relative;
 
-                .expand-status {
-                    cursor: pointer;
-                    margin: 0 16px 0 24px;
+                &.light-blue {
+                    background: #EBF4FE;
+
+                    .expand-wrapper {
+                        width: 100%;
+                    }
+                }
+
+                .expand-wrapper {
+                    width: calc(100% - 418px);
                     display: inline-block;
                     vertical-align: middle;
+                    height: 100%;
 
-                    .tips {
-                        .close {
-                            height: 24px;
-                            width: 24px;
+                    .expand-status {
+                        cursor: pointer;
+                        margin-left: 24px;
+                        display: inline-block;
+
+                        .tips {
+                            display: inline-block;
                             vertical-align: middle;
-                        }
 
-                        .open {
-                            height: 24px;
-                            width: 24px;
-                            vertical-align: middle;
-                        }
+                            .close {
+                                height: 24px;
+                                width: 24px;
+                                vertical-align: middle;
+                            }
 
-                        .icon {
-                            margin: 0 16px;
-                            height: 88px;
-                            width: 88px;
+                            .open {
+                                height: 24px;
+                                width: 24px;
+                                vertical-align: middle;
+                            }
+
+                            .icon {
+                                margin: 0 16px;
+                                height: 44px;
+                                width: 44px;
+                                vertical-align: middle;
+                            }
+                        }
+                    }
+
+                    .detail-content {
+                        height: 100%;
+                        font-weight: 600;
+                        font-size: 32px;
+                        color: #244367;
+                        text-align: left;
+                        font-style: normal;
+                        vertical-align: middle;
+                        display: inline-block;
+                        width: calc(100% - 150px);
+
+                        .title {
+                            display: inline-block;
+                            width: 100%;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
                             vertical-align: middle;
                         }
                     }
                 }
 
-                .detail-content {
-                    font-weight: 600;
-                    font-size: 32px;
-                    color: #244367;
-                    text-align: left;
-                    font-style: normal;
-                    text-transform: none;
-                    display: inline-block;
-                    vertical-align: middle;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                    display: inline-block;
-                    width: calc(100% - 197px);
-
-                }
-
-                .vue-input {
-                    position: absolute;
-                    right: 24px;
-                    top: 13px
-                }
-
-                .vue-node {
-                    padding-left: 40px;
+                .suggest {
+                    left: 0;
+                    margin-top: 10px;
                 }
             }
         }
@@ -195,6 +231,11 @@ export default {
                 line-height: 72px;
                 box-sizing: border-box;
 
+                &::before {
+                    content: '';
+                    display: inline-block;
+                }
+
                 &.search {
                     height: 85px;
                     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -204,9 +245,8 @@ export default {
 
                 .expand-status {
                     cursor: pointer;
-                    margin: 0 16px 0 24px;
+                    margin:0 16px 24px;
                     display: inline-block;
-                    vertical-align: middle;
 
                     .tips {
                         .close {
@@ -223,8 +263,8 @@ export default {
 
                         .icon {
                             margin: 0 16px;
-                            height: 88px;
-                            width: 88px;
+                            height: 44px;
+                            width: 44px;
                             vertical-align: middle;
                         }
                     }
@@ -234,24 +274,25 @@ export default {
                     font-weight: 600;
                     font-size: 32px;
                     color: #244367;
-                    text-align: left;
-                    font-style: normal;
-                    text-transform: none;
                     display: inline-block;
                     vertical-align: middle;
 
-                    .title {}
+                    .title {
+                        font-weight: 400;
+                        font-size: 28px;
+                        color: #293957;
+                    }
 
-                }
-
-
-                .vue-node {
-                    padding-left: 40px;
                 }
             }
         }
 
         .leaf-node {
+            &.node-level-2 {
+                .leaf-content {
+                    padding-left: 64px;
+                }
+            }
 
             .leaf-content {
                 font-weight: 600;
@@ -346,7 +387,7 @@ export default {
         }
 
         .leaf-content {
-            padding-left: 120px;
+            padding-left: 100px;
         }
     }
 }
