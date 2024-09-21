@@ -254,15 +254,15 @@ export default {
             text: '组件开发',
             items: [
                 {
-                    text: '1.index',
+                    text: 'Vue的组件开发',
                     link: '/senior/4.component/1.index'
                 },
                 {
-                    text: '1.button',
+                    text: '一.命令输入(按钮组件)',
                     link: '/senior/4.component/1.button'
                 },
                 {
-                    text: '2.dropdown',
+                    text: '一.命令输入(下拉组件)',
                     link: '/senior/4.component/2.dropdown'
                 },
                 {
@@ -275,7 +275,7 @@ export default {
                 },
                 {
                     text: '4.inpu',
-                    link: '/senior/4.component/4.inpu'
+                    link: '/senior/4.component/4.input'
                 },
                 {
                     text: '5.checkBox',
@@ -302,7 +302,7 @@ export default {
                     link: '/senior/4.component/1.env'
                 },
                 {
-                    text: '10.tree',
+                    text: '三.数据输出(树组件)',
                     link: '/senior/4.component/10.tree'
                 },
                 {

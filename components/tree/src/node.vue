@@ -57,8 +57,8 @@
                             <div class="sub-title">{{ currentData.label }}</div>
                         </div>
                         <div class="handle" v-if="!currentData.children || !currentData.children.length">
-                            <button class="button">扫描批改</button>
-                            <button class="button">报告</button>
+                            <button class="button">xxxx</button>
+                            <button class="button">xx</button>
                         </div>
                     </div>
                 </slot>
@@ -69,7 +69,7 @@
 
 <script lang="ts" setup name="TreeNode">
 import { defineProps, defineOptions, defineEmits, ref, Transition } from 'vue'
-import VueInput from '@/vue-components/input/index'
+import VueInput from '../../input/index'
 const { data, level } = defineProps({
     data: {
         type: Object,
@@ -174,6 +174,7 @@ export default {
                                 height: 24px;
                                 width: 24px;
                                 vertical-align: middle;
+                                display: inline-block;
                             }
 
                             .open {
@@ -187,6 +188,7 @@ export default {
                                 height: 44px;
                                 width: 44px;
                                 vertical-align: middle;
+                                display: inline-block;
                             }
                         }
                     }

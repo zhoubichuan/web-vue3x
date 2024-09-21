@@ -1,6 +1,6 @@
-import VueTree from './src/input.vue'
+import Input from './src/input.vue'
 /* istanbul ignore next */
-VueTree.install = function (Vue) {
-  Vue.component(VueTree.name, VueTree)
+Input.install = function (Vue) {
+  Vue.component(Input.name, Input)
 }
-export default VueTree
+export default Input

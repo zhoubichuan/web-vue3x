@@ -194,9 +194,9 @@ const components = [
 ]
 
 const install = function (app, opts = {}) {
-  // components.forEach(component => {
-  //   app.component(component.name, component)
-  // })
+  components.forEach(component => {
+    app.component(component.name, component)
+  })
 
   // Vue.use(InfiniteScroll)
   // Vue.use(Loading.directive)

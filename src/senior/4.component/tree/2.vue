@@ -1,32 +1,30 @@
 <template>
     <div class="box-tree">
         <vue-tree :data="treeData">
-            <template #root="{ row, handleExpand }">
-                <div class="root-content">
-                    <div class="expand-wrapper" @click="handleExpand">
+            <template #root="{ row, expand, handleExpand }">
+                <div class="root-content light-blue">
+                    <div class="expand-wrapper" @click="handleLoad(expand, handleExpand, row)">
                         <div class="expand-status">
                             <div class="tips">
-                                <img class="close" :src="images[!row.expand ? 0 : 1]" />
-                                <img class="icon" :src="images[2]" />
+                                <img class="close" :src="images[!expand ? 0 : 4]" />
+                                <img class="icon" :src="images[5]" />
                             </div>
                         </div>
                         <div class="detail-content">
                             <span class="title">{{ row.label }}</span>
                         </div>
                     </div>
-                    <vue-input v-model="searchName" placeholder="请输入名称搜索" @search="handleSearch"
-                        :suggest-data="suggestData" />
                 </div>
             </template>
-            <template #branch="{ row, handleExpand }">
-                <div class="branch-content node-content" @click="handleExpand">
+            <template #branch="{ row, expand, handleExpand }">
+                <div class="branch-content node-content" @click="handleLoad(expand, handleExpand, row)">
                     <div class="expand-status">
                         <div class="tips">
-                            <img class="close" :src="images[!row.expand ? 3 : 4]" />
+                            <img class="close" :src="images[!expand ? 3 : 4]" />
                         </div>
                     </div>
                     <div class="detail-content">
-                        <span class="title">{{ row.label }}(共{{ row.children.length }}份)</span>
+                        <span class="title">{{ row.label }}(共{{ row.qstCount }}题)</span>
                     </div>
                 </div>
             </template>
@@ -38,51 +36,76 @@
                     </div>
                     <div class="handle" v-if="!row.children || !row.children.length">
                         <button class="button" @click="scanAndCorrect(row)">xxxx</button>
-                        <button class="button" :class="{ disabled: !row.studyTaskId }" @click="viewReport(row)">
-                            xxx
-                        </button>
+                        <button class="button" :class="{ disabled: !row.studyTaskId }"
+                            @click="viewReport(row)">xx</button>
                     </div>
                 </div>
             </template>
         </vue-tree>
     </div>
 </template>
-
 <script setup lang="ts">
 import { ref } from "vue";
-const searchName = ref('')
-const isLoading = ref(true)
-const treeData = ref([])
-const request = () => {
-    treeData.value = [{
-        label: '000',
-        children: [
-            {
-                label: '111',
-            },
-            {
-                label: '2222',
-            },
-            {
-                label: '3333',
-            },
-        ]
-    }]
-}
-request();
-const suggestData = ref([
-    { label: "xxxxxxxxxxxxxxxxx" },
-    { label: "xxxxxxxxxxxxxxxxx" },
-    { label: "xxxxxxxxxxxxxxxxx" },
-    { label: "xxxxxxxxxxxxxxxxx" },
-    { label: "xxxxxxxxxxxxxxxxx" },
-    { label: "xxxxxxxxxxxxxxxxx" },
-    { label: "xxxxxxxxxxxxxxxxx" },
-]);
 
-const handleSearch = (val: string) => {
-    request();
+const isLoading = ref(true)
+const treeData = ref([{
+    id: 1,
+    label: '111',
+    children: []
+}])
+
+/**
+ * 点击某节点，获取其子节点
+ * @param nodeProps
+ */
+const loadNode = async (nodeProps: any) => {
+    const { nodeState, node } = nodeProps;
+
+    if (!node.id || node.children.length !== 0) {
+        return;
+    }
+
+    nodeState.isLoading = true;
+
+    const apiRes = {
+        data: [
+            {
+                label: '3333'
+            },
+            {
+                label: '3333'
+            },
+            {
+                label: '3333'
+            },
+            {
+                label: '3333'
+            }]
+    };
+
+    const childes = apiRes.data.map((item) => ({
+        id: item.nodeId,
+        // @ts-ignore
+        label: item.label || item.pageName,
+        children: [],
+        ...item,
+    }));
+
+    if (childes.length === 0) {
+        node.children = [{ id: "", label: "暂无数据", children: [] }];
+    } else {
+        node.children = childes;
+    }
+
+    nodeState.isLoading = false;
 };
+const handleLoad = async (expand, fn, node) => {
+    if (!expand) {
+        await loadNode({ node, nodeState: { isLoading: false } });
+    }
+    fn();
+};
+
 const images = [
     "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAbtJREFUaEPtl01Sg0AQhbvzV+UtzAUET2ByA3MCzRHYBTcmK6hyww30CHoC4wkcvYAcgZ1VgtMWZGOlIAG6CVA1rOc1/b3XzAwIPX+w5/2DAWg7QZOASYDpgBkhpoFsuUmAbSGzgGgCtptca8CrtKcB6Rflj7fM/o7KxQCsu+QRCG733rhFipfKPwuPdlJzgQjAxSpeI+J9QQ8REi2aSkMEwHKTLwA4P2QiAQaf3tCpaXShTAqASjYmPlKnBkg5IwRYKm/0XBL64LI2ALKGpEaqNYCdraiQfhacXaplgIwiQtKO8idPdUaqCwC7LEgv60B0BgAAwg9vNK2aQpcAAInmVQ+8bgEk+lI9TFSVFLoEEOH3cKoCjHoJgKAd5U2CKs1nH39VQd56y03KXiXy5L3eRkOkeN7LgwyJNsofr7kT0MYIhUh6U+fQyoM9MQD/7rMPIQTw+w5A9qFxkBqZRgDsVbym4l/KEAEcqft/IwBpUctNXgFgtvcC8T+wxgDSwvYqnhHgDSFGA6C3plz/DyHyDXC3Qo7eAHDck9CaBCRc5NQwCXDck9CaBCRc5NQwCXDck9CaBCRc5NT4A7DdsTH0SUSQAAAAAElFTkSuQmCC",
     "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAeFJREFUaEPtV11OwkAQnimaUIkJR+AIcgMQHoxAxBvADfAEcAPrCcATaEIxPtDSG+gN5Ab6INYYZUxLangA7ewsGuL2+ftm9/vZXUDY8g+3fP9gBPx1giYBk4DQAVMhoYFiuklAbKFwgElAaKCYbhIQWygc8H8TOKzPegh4AoAHEhOJYAo4v/TdXE9ljlIClXo4AYCSyoJrOQQDb2S3uTPZAqr1sEQAkQD9H85PvWHumjOYLaBSC/uA0OIskhaLiM54mD1Li49wbAHVxus5EXU4i6TF/oqASmPWBLKu0m6Kg0OA8ti1AyaHA19gN3KIAQLPtcvc3bArFC1QOgoLVgYmiFDgLrgaT08f71gMbu0pd56SgDgFjVVSqU4iVFlANGDxmFldrmvLeEJ0fObNs8wXCYhF1MIHQZWUeq9VgPp5UO+9VgFxCsfPLbQyfVaVFF7dVfPFFUqGcs6DtPfaE/gSkeo84L3nZoustL4Ba0sgeR8yO3QHgHnd9/06DVoF/HQeaA5t/8Ye6HI/mqNdwOJqfekgQjdJIv7TAnThj/YcnZvfmIC4Ts3HPLztFsCifODus36gcURuJAHOBqRYI0DqoJRvEpA6KOWbBKQOSvkmAamDUr5JQOqglG8SkDoo5X8CQEyCMd1iOWYAAAAASUVORK5CYII=",

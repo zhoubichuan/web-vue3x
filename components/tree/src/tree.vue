@@ -41,7 +41,7 @@ const emitEvent = (data) => {
     emits("change", data);
 }
 defineOptions({
-    name: 'vue-tree'
+    name: 'VueTree'
 });
 </script>
 <style lang="scss" scoped>

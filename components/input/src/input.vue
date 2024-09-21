@@ -14,7 +14,8 @@
 </template>
 
 <script setup lang="ts" name="VueInput">
-import { useAttrs, ref, defineEmits, type ImgHTMLAttributes  } from 'vue';
+import { useAttrs, ref, defineEmits, defineOptions, type ImgHTMLAttributes } from 'vue';
+
 const attrs = useAttrs();
 let newAttrs = attrs;
 const emits = defineEmits<{ 'update:modelValue': [string], 'search': [string] }>();
@@ -35,11 +36,9 @@ const handleUpdate = (event: InputEvent) => {
 const handleSearch = () => {
     emits('search', inputValue);
 }
-</script>
-<script lang="ts">
-export default {
+defineOptions({
     name: 'VueInput'
-};
+});
 </script>
 
 <style lang="scss" scoped>
@@ -109,6 +108,8 @@ export default {
                 width: 22px;
                 height: 22px;
                 margin: 0 36px 0 24px;
+                margin-top: 50%;
+                transform: translateY(-22px);
             }
         }
     }

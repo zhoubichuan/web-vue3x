@@ -1,24 +1,22 @@
 <template>
-    <div>修改的数值：{{ data.list }}</div>
-    <button @click="handleClick">push添加数据</button>
-    <button @click="handleClick2">赋值添加数据</button>
+    <div class="box">
+        <vue-input v-model="searchName" placeholder="请输入名称搜索" @search="handleSearch" :suggest-data="suggestData" />
+    </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive, watch } from "vue"
-const data = reactive({
-    list: [],
-})
-const handleClick = () => {
-    data.list.push(1)
+import { ref } from "vue"
+const searchName = ref('')
+const suggestData = ref([])
+const handleSearch = () => {
+    alert(searchName)
+    suggestData.push(searchName)
 }
-const handleClick2 = () => {
-    data.list = [2]
-}
-watch(
-    () => data.list,
-    (newVal, oldVal) => {
-        alert(JSON.stringify({ newVal, oldVal }))
-    }
-)
 </script>
+<style lang="scss" scoped>
+.box{
+    padding: 10px ;
+    background: lightgray;
+    display: inline-block;
+}
+</style>
