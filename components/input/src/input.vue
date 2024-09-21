@@ -1,42 +1,62 @@
 <template>
-  <el-tabs v-bind="$attrs" class="web-tabs">
-    <slot></slot>
-  </el-tabs>
+    <div :class="{ 'vue-input': true, }">
+        <div></div>
+        <input class="input" :modelValue="modelValue" @update:modelValue="handleUpdate" v-bind="newAttrs" />
+        <div></div>
+    </div>
 </template>
-<script lang='ts'>
-export default {
-  name: "WebTabs"
-}
+
+<script setup lang="ts" name="VueInput">
+import { useAttrs, defineEmits } from 'vue';
+const attrs = useAttrs();
+let newAttrs = attrs;
+const emits = defineEmits<{ 'update:modelValue': [string] }>();
+const { modelValue } = defineProps<{ modelValue: string }>();
+const handleUpdate = (val: string) => {
+    emits('update:modelValue', val);
+};
 </script>
-<style lang="scss">
-.web-tabs {
-  .el-tabs__item.is-active,
-  .el-tabs__item:hover {
-    color: var(--color-primary);
-  }
-  .el-tabs__active-bar {
-    display: none;
-  }
-  .el-tabs__item.is-active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: calc(50% - var(--tabs-after-width) / 2);
-    width: var(--tabs-after-width) !important;
-    height: var(--tabs-after-height);
-    border-radius: 2px;
-    background-color: var(--color-primary);
-    z-index: 1;
-    list-style: none;
-  }
-  #tab-first.is-active::after {
-    left: calc(50% - var(--tabs-after-width) / 2 - 10px);
-  }
-  .el-tabs__item:last-child.is-active::after {
-    left: calc(50% - var(--tabs-after-width) / 2 + 10px);
-  }
-  .el-tabs__nav-wrap::after {
-    display: none;
-  }
+<script lang="ts">
+export default {
+    name: 'VueInput'
+};
+</script>
+
+<style lang="scss" scoped>
+@import '../../config.scss';
+@import '../../common.scss';
+
+.#{$prefix}-input {
+    width: 366px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50px 50px 50px 50px;
+    overflow: hidden;
+
+    .input {
+        margin: 0;
+        border: none;
+        outline: none;
+        height: 100%;
+        width: calc(100% - 32px);
+        margin-left: 32px;
+        font-weight: 400;
+        font-size: 26px;
+        color: #2F79FC;
+        line-height: 40px;
+        text-align: left;
+        font-style: normal;
+        text-transform: none;
+
+        &::placeholder {
+            font-weight: 400;
+            font-size: 26px;
+            color: #B4BFE5;
+            line-height: 40px;
+            text-align: left;
+            font-style: normal;
+            text-transform: none;
+        }
+    }
 }
 </style>
