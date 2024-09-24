@@ -1,6 +1,6 @@
 <template>
     <div class="vue-tree" v-if="data.length">
-        <tree-node  v-for="(item, index) in data" :key="index" :data="item" :level="level + 1"
+        <tree-node  v-for="(item, index) in data" :key="index" :data="item" :level="level + 1" :branchAlias="branchAlias"
             :sort="index + 1" @on-toggle-expand="onToggleExpand">
             <template #root="scoped">
                 <slot name="root" v-bind="scoped"></slot>
@@ -35,6 +35,10 @@ const { data, level } = defineProps({
         type: Number,
         default: 0,
     },
+    branchAlias: {
+        type: String,
+        default: ''
+    }
 });
 
 const emitEvent = (data) => {
