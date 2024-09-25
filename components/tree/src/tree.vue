@@ -45,10 +45,12 @@ const emitEvent = (data) => {
     emits("change", data);
 }
 defineOptions({
-    name: 'VueTree'
+    name: 'vue-tree'
 });
 </script>
 <style lang="scss" scoped>
+@import '../../config.scss';
+@import '../../common.scss';
 .vue-tree {
   
 }

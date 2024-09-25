@@ -8,7 +8,8 @@
                         <div class="expand-wrapper" @click="handleExpand">
                             <div class="expand-status">
                                 <div class="tips">
-                                    <img class="close" :src="images[!currentData.expand ? 0 : 1]" />
+                                    <img :class="currentData.expand ? 'open' : 'close'"
+                                        :src="images[!currentData.expand ? 0 : 1]" />
                                     <img class="icon" :src="images[2]" />
                                 </div>
                             </div>
@@ -16,7 +17,7 @@
                                 <span class="title">{{ currentData.label }}</span>
                             </div>
                         </div>
-                        <vue-input class="search" v-model="name" placeholder="请输入名称" @change="request" />
+                        <vue-input class="search" v-model="name" placeholder="请输入试卷名称" @change="request" />
                     </div>
                 </slot>
                 <transition name="dropdown" mode="out-in">
@@ -43,7 +44,8 @@
                     <div class="branch-content node-content" @click="handleExpand">
                         <div class="expand-status">
                             <div class="tips">
-                                <img class="close" :src="images[!currentData.expand ? 3 : 4]" />
+                                <img :class="currentData.expand ? 'open' : 'close'"
+                                    :src="images[!currentData.expand ? 3 : 4]" />
                             </div>
                         </div>
                         <div class="detail-content">
@@ -77,8 +79,8 @@
                             <div class="sub-title">{{ currentData.label }}</div>
                         </div>
                         <div class="handle" v-if="!currentData.children || !currentData.children.length">
-                            <button class="button">xxxx</button>
-                            <button class="button">xx</button>
+                            <button class="button">扫描批改</button>
+                            <button class="button">报告</button>
                         </div>
                     </div>
                 </slot>
@@ -143,7 +145,10 @@ export default {
 }
 </style>
 <style lang="scss">
-.vue-node {
+@import '../../config.scss';
+@import '../../common.scss';
+
+.#{$prefix}-node {
     width: 100%;
     padding: 0;
     margin: 0;
@@ -154,7 +159,7 @@ export default {
         margin-bottom: 0;
     }
 
-    .vue-node-single {
+    .#{$prefix}-node-single {
         padding: 0;
         margin: 0;
         list-style: none;
@@ -164,12 +169,12 @@ export default {
             .root-content {
                 display: inline-block;
                 width: 100%;
-                line-height: 72px;
                 height: 85px;
                 border: 1px solid rgba(255, 255, 255, 0.2);
                 background: #e5e6ff;
                 border-radius: 12px 12px 12px 12px;
                 position: relative;
+                @include content-middle();
 
                 &.light-blue {
                     background: #ebf4fe;
@@ -180,10 +185,9 @@ export default {
                 }
 
                 .expand-wrapper {
-                    width: calc(100% - 418px);
+                    width: calc(100% - 390px);
                     display: inline-block;
                     vertical-align: middle;
-                    height: 100%;
 
                     .expand-status {
                         cursor: pointer;
@@ -200,12 +204,6 @@ export default {
                                 vertical-align: middle;
                             }
 
-                            .open {
-                                height: 24px;
-                                width: 24px;
-                                vertical-align: middle;
-                            }
-
                             .icon {
                                 margin: 0 16px;
                                 height: 44px;
@@ -216,10 +214,6 @@ export default {
                     }
 
                     .detail-content {
-                        height: 100%;
-                        font-weight: 600;
-                        font-size: 32px;
-                        color: #244367;
                         text-align: left;
                         font-style: normal;
                         vertical-align: middle;
@@ -227,6 +221,9 @@ export default {
                         width: calc(100% - 150px);
 
                         .title {
+                            font-weight: 600;
+                            font-size: 32px;
+                            color: #244367;
                             display: inline-block;
                             width: 100%;
                             white-space: nowrap;
@@ -234,6 +231,15 @@ export default {
                             overflow: hidden;
                             vertical-align: middle;
                             word-break: break-all;
+                            @include ellipsis();
+
+                            &.ellipsis-2 {
+                                @include ellipsis(2)
+                            }
+
+                            &.ellipsis-3 {
+                                @include ellipsis(3)
+                            }
                         }
                     }
                 }
@@ -253,24 +259,13 @@ export default {
                 background: #ffffff;
                 border-radius: 0px 0px 0px 0px;
                 border-bottom: 1px solid #eef2f6;
-                line-height: 72px;
                 box-sizing: border-box;
 
-                &::before {
-                    content: '';
-                    display: inline-block;
-                }
-
-                &.search {
-                    height: 85px;
-                    border: 1px solid rgba(255, 255, 255, 0.2);
-                    background: #e5e6ff;
-                    border-radius: 12px 12px 12px 12px;
-                }
+                @include content-middle();
 
                 .expand-status {
                     cursor: pointer;
-                    margin: 0 16px 24px;
+                    margin: 0 16px 0 24px;
                     display: inline-block;
 
                     .tips {
@@ -330,7 +325,6 @@ export default {
                 display: flex;
                 background: #ffffff;
                 border-bottom: 1px solid #eef2f6;
-                line-height: 72px;
                 min-height: 92px;
 
                 .text {
@@ -341,7 +335,6 @@ export default {
                         font-weight: 400;
                         font-size: 28px;
                         color: #293957;
-                        line-height: 39px;
                         text-align: left;
                         font-style: normal;
                         text-transform: none;
@@ -353,7 +346,6 @@ export default {
                         font-weight: 400;
                         font-size: 20px;
                         color: #ff5656;
-                        line-height: 28px;
                         text-align: left;
                         font-style: normal;
                         text-transform: none;
@@ -369,14 +361,13 @@ export default {
                     margin: 16px 20px;
 
                     .button {
-                        padding: 0 32px;
+                        padding: 0 30px;
                         height: 60px;
                         background: #eaf2ff;
                         border-radius: 50px 50px 50px 50px;
                         font-weight: 400;
                         font-size: 26px;
                         color: #2f79fc;
-                        line-height: 36px;
                         text-align: left;
                         font-style: normal;
                         text-transform: none;
