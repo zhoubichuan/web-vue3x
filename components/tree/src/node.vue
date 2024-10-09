@@ -8,8 +8,10 @@
                         <div class="expand-wrapper" @click="handleExpand">
                             <div class="expand-status">
                                 <div class="tips">
-                                    <img :class="currentData.expand ? 'open' : 'close'"
-                                        :src="images[!currentData.expand ? 0 : 1]" />
+                                    <img
+                                        :class="currentData.expand ? 'open' : 'close'"
+                                        :src="images[!currentData.expand ? 0 : 1]"
+                                    />
                                     <img class="icon" :src="images[2]" />
                                 </div>
                             </div>
@@ -17,13 +19,19 @@
                                 <span class="title">{{ currentData.label }}</span>
                             </div>
                         </div>
-                        <vue-input class="search" v-model="name" placeholder="请输入试卷名称" @change="request" />
+                        <vue-input class="search" v-model="name" placeholder="请输入名称" @change="request" />
                     </div>
                 </slot>
                 <transition name="dropdown" mode="out-in">
                     <div v-if="currentData.expand">
-                        <tree-node class="child-node" v-for="(item, index) in currentData.children" :key="index"
-                            :data="item" :level="level + 1" :branchAlias="branchAlias">
+                        <tree-node
+                            class="child-node"
+                            v-for="(item, index) in currentData.children"
+                            :key="index"
+                            :data="item"
+                            :level="level + 1"
+                            :branchAlias="branchAlias"
+                        >
                             <template #root="scoped">
                                 <slot name="root" v-bind="scoped"></slot>
                             </template>
@@ -38,14 +46,18 @@
                 </transition>
             </div>
             <!-- 分支节点 -->
-            <div v-else-if="branchAlias ? currentData[branchAlias] : currentData.children && currentData.children.length"
-                :class="['branch-node', 'node-level-' + level]">
+            <div
+                v-else-if="branchAlias ? currentData[branchAlias] : currentData.children && currentData.children.length"
+                :class="['branch-node', 'node-level-' + level]"
+            >
                 <slot name="branch" :row="currentData" :handleExpand="handleExpand" :expand="currentData.expand">
                     <div class="branch-content node-content" @click="handleExpand">
                         <div class="expand-status">
                             <div class="tips">
-                                <img :class="currentData.expand ? 'open' : 'close'"
-                                    :src="images[!currentData.expand ? 3 : 4]" />
+                                <img
+                                    :class="currentData.expand ? 'open' : 'close'"
+                                    :src="images[!currentData.expand ? 3 : 4]"
+                                />
                             </div>
                         </div>
                         <div class="detail-content">
@@ -55,8 +67,14 @@
                 </slot>
                 <transition name="dropdown" mode="out-in">
                     <div v-if="currentData.expand">
-                        <tree-node class="child-node" v-for="(item, index) in currentData.children" :key="index"
-                            :data="item" :level="level + 1" :branchAlias="branchAlias">
+                        <tree-node
+                            class="child-node"
+                            v-for="(item, index) in currentData.children"
+                            :key="index"
+                            :data="item"
+                            :level="level + 1"
+                            :branchAlias="branchAlias"
+                        >
                             <template #root="scoped">
                                 <slot name="root" v-bind="scoped"></slot>
                             </template>
@@ -79,8 +97,8 @@
                             <div class="sub-title">{{ currentData.label }}</div>
                         </div>
                         <div class="handle" v-if="!currentData.children || !currentData.children.length">
-                            <button class="button">扫描批改</button>
-                            <button class="button">报告</button>
+                            <button class="button">xxx</button>
+                            <button class="button">xxxxx</button>
                         </div>
                     </div>
                 </slot>
@@ -125,7 +143,7 @@ const request = () => {
     emitEvent('change', name)
 }
 defineOptions({
-    name: 'tree-node'
+    name: 'TreeNode'
 })
 </script>
 <script lang="ts">
@@ -234,11 +252,11 @@ export default {
                             @include ellipsis();
 
                             &.ellipsis-2 {
-                                @include ellipsis(2)
+                                @include ellipsis(2);
                             }
 
                             &.ellipsis-3 {
-                                @include ellipsis(3)
+                                @include ellipsis(3);
                             }
                         }
                     }
@@ -401,6 +419,33 @@ export default {
     .node-level-3 {
         .branch-content {
             padding-left: 80px;
+        }
+
+        .leaf-content {
+            padding-left: 100px;
+        }
+    }
+    .node-level-4 {
+        .branch-content {
+            padding-left: 120px;
+        }
+
+        .leaf-content {
+            padding-left: 100px;
+        }
+    }
+    .node-level-5 {
+        .branch-content {
+            padding-left: 160px;
+        }
+
+        .leaf-content {
+            padding-left: 100px;
+        }
+    }
+    .node-level-6 {
+        .branch-content {
+            padding-left: 200px;
         }
 
         .leaf-content {
