@@ -7,59 +7,59 @@ export default {
             // collapsed: false,
             items: [
                 {
-                    text: '1.index',
+                    text: '首页',
                     link: '/base/engine/1.index',
                 },
                 {
-                    text: '1.utils',
+                    text: '一.开发工具',
                     link: '/base/engine/1.utils',
                 },
                 {
-                    text: '2.project',
+                    text: '二.创建项目',
                     link: '/base/engine/2.project',
                 },
                 {
-                    text: '3.vuecli',
+                    text: '三.vite 配置',
                     link: '/base/engine/3.vuecli',
                 },
                 {
-                    text: '4.env',
+                    text: '四.环境配置',
                     link: '/base/engine/4.env',
                 },
                 {
-                    text: '5.ui',
+                    text: '五.UI 框架',
                     link: '/base/engine/5.ui',
                 },
                 {
-                    text: '6.layout',
+                    text: '六.页面布局',
                     link: '/base/engine/6.layout',
                 },
                 {
-                    text: '7.single',
+                    text: '七.单页应用',
                     link: '/base/engine/7.single',
                 },
                 {
-                    text: '8.page',
+                    text: '八.多页应用',
                     link: '/base/engine/8.page',
                 },
                 {
-                    text: '9.module',
+                    text: '九.模板解析',
                     link: '/base/engine/9.module',
                 },
                 {
-                    text: '10.skill',
+                    text: '十.编码技巧',
                     link: '/base/engine/10.skill',
                 },
                 {
-                    text: '11.mock',
+                    text: '十一.Mock 数据',
                     link: '/base/engine/11.mock',
                 },
                 {
-                    text: '12.optimization',
+                    text: '十二.vite 优化',
                     link: '/base/engine/12.optimization',
                 },
                 {
-                    text: '13.deploy',
+                    text: '十三.构建部署',
                     link: '/base/engine/13.deploy',
                 },
             ]
@@ -139,6 +139,10 @@ export default {
                 {
                     text: '一.Vue/cli 3.x',
                     link: '/base/vue3.x/1.vue-cli3'
+                },
+                {
+                    text: '一.vite',
+                    link: '/base/vue3.x/1.vite'
                 },
                 {
                     text: '二.Vue3.x（格式）',
