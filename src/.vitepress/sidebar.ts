@@ -270,39 +270,39 @@ export default {
                     link: '/senior/4.component/2.dropdown'
                 },
                 {
-                    text: '2.dropdown',
+                    text: '一.命令输入（下拉菜单）',
                     link: '/senior/4.component/2.dropdown'
                 },
                 {
-                    text: '3.form',
+                    text: '二.数据输入（表单）',
                     link: '/senior/4.component/3.form'
                 },
                 {
-                    text: '4.inpu',
+                    text: '二.数据输入（输入框）',
                     link: '/senior/4.component/4.input'
                 },
                 {
-                    text: '5.checkBox',
+                    text: '二.数据输入（单/复选框）',
                     link: '/senior/4.component/5.checkBox'
                 },
                 {
-                    text: '6.cascader',
+                    text: '二.数据输入（级联选择）',
                     link: '/senior/4.component/6.cascader'
                 },
                 {
-                    text: '7.date',
+                    text: '二.数据输入（日期）',
                     link: '/senior/4.component/7.date'
                 },
                 {
-                    text: '8.dispaly',
+                    text: '二.数据输入（动态渲染）',
                     link: '/senior/4.component/8.dispaly'
                 },
                 {
-                    text: '9.dynamics',
+                    text: '二.数据输入（动态）',
                     link: '/senior/4.component/9.dynamics'
                 },
                 {
-                    text: '1.env',
+                    text: '二.数据输入（富文本）',
                     link: '/senior/4.component/1.env'
                 },
                 {
@@ -310,27 +310,27 @@ export default {
                     link: '/senior/4.component/10.tree'
                 },
                 {
-                    text: '12.table',
+                    text: '三.数据输出（表格）',
                     link: '/senior/4.component/12.table'
                 },
                 {
-                    text: '1.recursion',
+                    text: '六.导航（菜单）',
                     link: '/senior/4.component/1.recursion'
                 },
                 {
-                    text: '3.dialog',
+                    text: '七.特殊窗口（对话框',
                     link: '/senior/4.component/3.dialog'
                 },
                 {
-                    text: '4.render',
+                    text: '五.render',
                     link: '/senior/4.component/4.render'
                 },
                 {
-                    text: '9.alert',
+                    text: '七.特殊窗口（警告提示）',
                     link: '/senior/4.component/9.alert'
                 },
                 {
-                    text: '13.publish',
+                    text: '十三.组件发布',
                     link: '/senior/4.component/13.publish'
                 },
             ]
