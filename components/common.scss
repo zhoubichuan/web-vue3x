@@ -42,8 +42,9 @@
     // }
 }
 
-@mixin content-middle(){
+@mixin content-middle() {
     //  子元素为行内块元素+vertical-align: middle就能上下居中
+    font-size: 0;
     &::before {
         content: '';
         display: inline-block;
@@ -67,4 +68,11 @@
         word-break: break-all;
         white-space: normal;
     }
+}
+@mixin world-line-break() {
+    white-space: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+    text-align: justify;
+    line-break: anywhere;
 }

@@ -3,7 +3,7 @@
         <li class="vue-node-single">
             <!-- 根节点 -->
             <div v-if="level === 1" :class="['root-node', 'node-level-' + level]">
-                <slot name="root" :row="currentData" :handleExpand="handleExpand" :expand="currentData.expand">
+                <slot name="root" v-bind="{ row: currentData, handleExpand, expand: currentData.expand, loading }">
                     <div class="root-content">
                         <div class="expand-wrapper" @click="handleExpand">
                             <div class="expand-status">
@@ -19,11 +19,11 @@
                                 <span class="title">{{ currentData.label }}</span>
                             </div>
                         </div>
-                        <vue-input class="search" v-model="name" placeholder="请输入名称" @change="request" />
+                        <vue-input class="search" v-model="name" placeholder="请输入名称" @change="searchChange" />
                     </div>
                 </slot>
                 <transition name="dropdown" mode="out-in">
-                    <div v-if="currentData.expand">
+                    <div class="tree-node" v-if="currentData.expand">
                         <tree-node
                             class="child-node"
                             v-for="(item, index) in currentData.children"
@@ -31,6 +31,8 @@
                             :data="item"
                             :level="level + 1"
                             :branchAlias="branchAlias"
+                            :default-expanded-keys="defaultExpandedKeys"
+                            :load="load"
                         >
                             <template #root="scoped">
                                 <slot name="root" v-bind="scoped"></slot>
@@ -50,7 +52,7 @@
                 v-else-if="branchAlias ? currentData[branchAlias] : currentData.children && currentData.children.length"
                 :class="['branch-node', 'node-level-' + level]"
             >
-                <slot name="branch" :row="currentData" :handleExpand="handleExpand" :expand="currentData.expand">
+                <slot name="branch" v-bind="{ row: currentData, handleExpand, expand: currentData.expand, loading }">
                     <div class="branch-content node-content" @click="handleExpand">
                         <div class="expand-status">
                             <div class="tips">
@@ -61,12 +63,12 @@
                             </div>
                         </div>
                         <div class="detail-content">
-                            <span class="title">{{ currentData.label }}(共{{ currentData.children.length }}份)</span>
+                            <span class="title">{{ currentData.label }}(共{{ currentData?.children?.length }}份)</span>
                         </div>
                     </div>
                 </slot>
                 <transition name="dropdown" mode="out-in">
-                    <div v-if="currentData.expand">
+                    <div class="tree-node" v-if="currentData.expand">
                         <tree-node
                             class="child-node"
                             v-for="(item, index) in currentData.children"
@@ -74,6 +76,8 @@
                             :data="item"
                             :level="level + 1"
                             :branchAlias="branchAlias"
+                            :default-expanded-keys="defaultExpandedKeys"
+                            :load="load"
                         >
                             <template #root="scoped">
                                 <slot name="root" v-bind="scoped"></slot>
@@ -90,16 +94,21 @@
             </div>
             <!-- 叶子节点 -->
             <div v-else :class="['leaf-node', 'node-level-' + level]">
-                <slot name="leaf" :row="currentData">
+                <slot name="leaf" v-bind="{ row: currentData }">
                     <div class="leaf-content node-content">
-                        <div class="text">
-                            <div class="title">{{ currentData.label }}</div>
-                            <div class="sub-title">{{ currentData.label }}</div>
-                        </div>
-                        <div class="handle" v-if="!currentData.children || !currentData.children.length">
-                            <button class="button">xxx</button>
-                            <button class="button">xxxxx</button>
-                        </div>
+                        <template v-if="currentData.id">
+                            <div class="text">
+                                <div class="title">{{ currentData.label }}</div>
+                                <div class="sub-title">{{ currentData.label }}</div>
+                            </div>
+                            <div class="handle" v-if="!currentData.children || !currentData.children.length">
+                                <button class="button">xxx</button>
+                                <button class="button">xxxxx</button>
+                            </div>
+                        </template>
+                        <template v-else>
+                            <div class="no-data">{{ currentData.label }}</div>
+                        </template>
                     </div>
                 </slot>
             </div>
@@ -107,13 +116,23 @@
     </ul>
 </template>
 
-<script lang="ts" setup name="TreeNode">
-import { defineProps, defineOptions, defineEmits, ref, Transition } from 'vue'
+<script lang="ts" setup>
+import { ref, watch, defineSlots } from 'vue'
 import VueInput from '../../input/index'
-const { data, level, branchAlias } = defineProps({
+import type { NodeType } from './type'
+
+defineSlots<{
+    root: (props: { row: NodeType; handleExpand: () => void; expand: boolean; loading: boolean }) => void
+    branch: (props: { row: NodeType; handleExpand: () => void; expand: boolean; loading: boolean }) => void
+    leaf: (props: { row: NodeType }) => void
+}>()
+const { data, level, branchAlias, defaultExpandedKeys, load } = defineProps({
     data: {
-        type: Object,
-        default: () => ({})
+        type: Object as () => NodeType,
+        require: true,
+        validator(items: NodeType) {
+            return JSON.stringify(items) != '{}'
+        }
     },
     level: {
         type: Number,
@@ -122,6 +141,14 @@ const { data, level, branchAlias } = defineProps({
     branchAlias: {
         type: String,
         default: ''
+    },
+    defaultExpandedKeys: {
+        type: Array as () => (number | string)[],
+        default: () => []
+    },
+    load: {
+        type: Function,
+        default: () => {}
     }
 })
 const images = [
@@ -132,25 +159,52 @@ const images = [
     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAActJREFUaEPtVs1RwlAQ3gXCjDdKoAIJHUAFagfQAd6Sk5wMN7ECsALtQDow0ICU4M0ZElnnwWQmB9Hs+x46jC/n/Xbf97MsTCf+8Ym/nzyBv3bQO+AdABXwEQIFhOHeAVhCsIF3ABQQhnsHYAnBBv/XgTDKxsK1CyIJQRHXIvKwmgRjmz5WDnTi/JmIejYDD2KY5svbxlDbU00gjLKeMBsCzj8mukqTxpOmsZpAJ8pnxDTQDKlaK8TTVVK/rlpv6tQEzuOPOyYZaYZUrf0VAmGcXwrRY9VHaepYpJ9OgoUKoykuao+yxESLZdLoa9+jjpAZEEbvbeHALHJbO/BA/RtL1k0nZ2ttPysCOxIOo2QTnYKoNYG9E+aY8Y1WtXK9zeKW8RAB06gT569AlKxy75QAsA/WuXdKYB+lzUC4NtNEyebqftUfjlDRVLMPaO6dO1C6DxX2gdNlUu9q3Pqu1pkDpfvwQkQt17/3h0g4JfDTPrBsh+mkOXelvunjnMD+yG1GQjVzHwon1kzb+zRpTl0+/mgEdiRG0qIga1OdW9o/aBqSR3FA8wC01hNAFUTx3gFUQRTvHUAVRPHeAVRBFO8dQBVE8d4BVEEU/wmZ9IYxo5UHxAAAAABJRU5ErkJggg==',
     'data:image/png;base64,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'
 ]
-const currentData = ref(data)
-const emitEvent = defineEmits<{ 'on-toggle-expand': [Object] }>()
-const handleExpand = () => {
+const loading = ref(false)
+const currentData = ref(data as NodeType)
+const emits = defineEmits(['on-toggle-expand', 'search-change'])
+const handleExpand = async () => {
     currentData.value.expand = !currentData.value.expand
-    emitEvent('on-toggle-expand', currentData)
+    loading.value = true
+    await load(currentData.value)
+    loading.value = false
+    emits('on-toggle-expand', currentData)
 }
+watch(
+    () => defaultExpandedKeys,
+    (newKey) => {
+        if (newKey?.length && defaultExpandedKeys[level - 1]) {
+            currentData.value.expand = defaultExpandedKeys[level - 1] == currentData.value.id
+            console.log(currentData.value.expand, 'currentData')
+        }
+    },
+    {
+        deep: true,
+        immediate: true
+    }
+)
+watch(
+    () => data,
+    (newData) => {
+        if (newData) {
+            currentData.value = newData
+        }
+    },
+    {
+        deep: true,
+        immediate: true
+    }
+)
+
 const name = ref('')
-const request = () => {
-    emitEvent('change', name)
+const searchChange = () => {
+    emits('search-change', name.value)
 }
+
 defineOptions({
     name: 'TreeNode'
 })
 </script>
-<script lang="ts">
-export default {
-    name: 'TreeNode'
-}
-</script>
+
 <style>
 .dropdown-enter-active,
 .dropdown-leave-active {
@@ -163,21 +217,19 @@ export default {
 }
 </style>
 <style lang="scss">
-@import '../../config.scss';
-@import '../../common.scss';
+@use '../../config.scss';
+@use '../../common.scss';
 
-.#{$prefix}-node {
+.#{config.$prefix}-node {
     width: 100%;
     padding: 0;
-    margin: 0;
-    padding-right: 0;
-    margin-bottom: 20px;
+    margin: 0 0 20px 0;
 
     &.child-node {
         margin-bottom: 0;
     }
 
-    .#{$prefix}-node-single {
+    .#{config.$prefix}-node-single {
         padding: 0;
         margin: 0;
         list-style: none;
@@ -192,7 +244,7 @@ export default {
                 background: #e5e6ff;
                 border-radius: 12px 12px 12px 12px;
                 position: relative;
-                @include content-middle();
+                @include common.content-middle();
 
                 &.light-blue {
                     background: #ebf4fe;
@@ -204,17 +256,22 @@ export default {
 
                 .expand-wrapper {
                     width: calc(100% - 390px);
+                    cursor: pointer;
                     display: inline-block;
                     vertical-align: middle;
+                    @include common.content-middle();
 
                     .expand-status {
                         cursor: pointer;
                         margin-left: 24px;
                         display: inline-block;
+                        vertical-align: middle;
+                        @include common.content-middle();
 
                         .tips {
                             display: inline-block;
                             vertical-align: middle;
+                            @include common.content-middle();
 
                             .close {
                                 height: 24px;
@@ -236,7 +293,7 @@ export default {
                         font-style: normal;
                         vertical-align: middle;
                         display: inline-block;
-                        width: calc(100% - 150px);
+                        width: calc(100% - 148px);
 
                         .title {
                             font-weight: 600;
@@ -249,14 +306,14 @@ export default {
                             overflow: hidden;
                             vertical-align: middle;
                             word-break: break-all;
-                            @include ellipsis();
+                            @include common.ellipsis();
 
                             &.ellipsis-2 {
-                                @include ellipsis(2);
+                                @include common.ellipsis(2);
                             }
 
                             &.ellipsis-3 {
-                                @include ellipsis(3);
+                                @include common.ellipsis(3);
                             }
                         }
                     }
@@ -270,21 +327,25 @@ export default {
         }
 
         .branch-node {
+            @include common.content-middle();
+
             .branch-content {
                 display: inline-block;
+                cursor: pointer;
                 width: 100%;
                 height: 72px;
                 background: #ffffff;
-                border-radius: 0px 0px 0px 0px;
+                border-radius: 0;
                 border-bottom: 1px solid #eef2f6;
                 box-sizing: border-box;
 
-                @include content-middle();
+                @include common.content-middle();
 
                 .expand-status {
                     cursor: pointer;
                     margin: 0 16px 0 24px;
                     display: inline-block;
+                    font-size: 0;
 
                     .tips {
                         .close {
@@ -310,10 +371,11 @@ export default {
 
                 .detail-content {
                     font-weight: 600;
-                    font-size: 32px;
+                    font-size: 0;
                     color: #244367;
                     display: inline-block;
                     vertical-align: middle;
+                    max-width: calc(100% - 100px);
 
                     .title {
                         font-weight: 400;
@@ -347,7 +409,7 @@ export default {
 
                 .text {
                     margin: 16px 0;
-                    width: 270px;
+                    width: calc(100% - 340px);
 
                     .title {
                         font-weight: 400;
@@ -358,11 +420,13 @@ export default {
                         text-transform: none;
                         max-width: 269px;
                         word-break: break-all;
+                        line-height: 39px;
                     }
 
                     .tips {
                         font-weight: 400;
                         font-size: 20px;
+                        line-height: 28px;
                         color: #ff5656;
                         text-align: left;
                         font-style: normal;
@@ -372,7 +436,7 @@ export default {
                 }
 
                 .handle {
-                    width: calc(100% - 270px);
+                    width: 300px;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
@@ -422,34 +486,37 @@ export default {
         }
 
         .leaf-content {
-            padding-left: 100px;
+            padding-left: 104px;
         }
     }
+
     .node-level-4 {
         .branch-content {
             padding-left: 120px;
         }
 
         .leaf-content {
-            padding-left: 100px;
+            padding-left: 144px;
         }
     }
+
     .node-level-5 {
         .branch-content {
             padding-left: 160px;
         }
 
         .leaf-content {
-            padding-left: 100px;
+            padding-left: 184px;
         }
     }
+
     .node-level-6 {
         .branch-content {
             padding-left: 200px;
         }
 
         .leaf-content {
-            padding-left: 100px;
+            padding-left: 140px;
         }
     }
 }
