@@ -117,8 +117,8 @@ export default defineConfig({
 
     //编辑本页
     editLink: {
-      pattern: 'https://github.com/zhoubichuan/web-vue3x/edit/master/src/:path',
-      text: '在GitHub编辑本页'
+      pattern: 'https://gitee.com/zhoubichuan/web-vue3x/edit/master/src/:path',
+      text: '在Gitee编辑本页'
     },
 
     //自定义上下页名
