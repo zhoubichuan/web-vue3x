@@ -28,6 +28,5 @@ coverage
 *.sw?
 
 *.tsbuildinfo
-.history
 
 dest

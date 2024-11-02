@@ -41,3 +41,38 @@
     //     background: #ff0bee;
     // }
 }
+
+@mixin content-middle() {
+    //  子元素为行内块元素+vertical-align: middle就能上下居中
+    font-size: 0;
+    &::before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+}
+
+@mixin ellipsis($rowCount: 1) {
+    @if $rowCount <= 1 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    } @else {
+        display: -webkit-box;
+        -webkit-line-clamp: $rowCount;
+        -webkit-box-orient: vertical;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        white-space: normal;
+    }
+}
+@mixin world-line-break() {
+    white-space: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+    text-align: justify;
+    line-break: anywhere;
+}

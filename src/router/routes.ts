@@ -1,14 +1,10 @@
-import type { RouteRecordRaw } from 'vue-router';
+import type { RouteRecordRaw } from 'vue-router'
 
-import microApp from '@/extends/micro-app';
-
-export const routes: RouteRecordRaw[] = [
+const routes: RouteRecordRaw[] = [
     {
-        path: `/${microApp.name}`,
+        path: '/',
         component: '',
-        meta: {
-        
-        },
-     
-    }
-];
+    },
+]
+
+export default routes
