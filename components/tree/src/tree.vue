@@ -1,16 +1,8 @@
 <template>
     <div class="vue-tree" v-if="data?.length">
-        <tree-node
-            v-for="(item, index) in data"
-            :key="index"
-            :data="item"
-            :level="level + 1"
-            :branchAlias="branchAlias"
-            :default-expanded-keys="defaultExpandedKeys"
-            :sort="index + 1"
-            @on-toggle-expand="onToggleExpand"
-            :load="load"
-        >
+        <tree-node v-for="(item, index) in data" :key="index" :data="item" :level="level + 1" :branchAlias="branchAlias"
+            :default-expanded-keys="defaultExpandedKeys" :sort="index + 1" @on-toggle-expand="onToggleExpand"
+            :load="load">
             <template #root="scoped">
                 <slot name="root" v-bind="scoped"></slot>
             </template>
@@ -37,27 +29,27 @@ const { data, level, branchAlias, defaultExpandedKeys } = defineProps({
         require: true,
         validator(items: NodeType[]) {
             return items.length > 0
-        }
+        },
     },
     level: {
         type: Number,
-        default: 0
+        default: 0,
     },
     branchAlias: {
         type: String,
-        default: ''
+        default: '',
     },
     defaultExpandedKeys: {
         type: Array as () => (number | string)[],
-        default: () => []
+        default: () => [],
     },
     load: {
         type: Function,
-        default: () => {}
-    }
+        default: () => { },
+    },
 })
 
 defineOptions({
-    name: 'VueTree'
+    name: 'VueTree',
 })
 </script>
