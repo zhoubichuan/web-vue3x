@@ -67,7 +67,7 @@ import Tree from './tree/index'
 // import CarouselItem from './carousel-item/index'
 // import Collapse from './collapse/index'
 // import CollapseItem from './collapse-item/index'
-// import Cascader from './cascader/index'
+import VueCascader from './cascader/index'
 // import ColorPicker from './color-picker/index'
 // import Transfer from './transfer/index'
 // import Container from './container/index'
@@ -164,7 +164,7 @@ const components = [
   // CarouselItem,
   // Collapse,
   // CollapseItem,
-  // Cascader,
+  VueCascader,
   // ColorPicker,
   // Transfer,
   // Container,
@@ -214,7 +214,6 @@ const install = function (app, opts = {}) {
   // Vue.prototype.$notify = Notification
   // Vue.prototype.$message = Message
 }
-
 
 export default {
   version: '2.15.13',
@@ -290,7 +289,7 @@ export default {
   // CarouselItem,
   // Collapse,
   // CollapseItem,
-  // Cascader,
+  VueCascader,
   // ColorPicker,
   // Transfer,
   // Container,
