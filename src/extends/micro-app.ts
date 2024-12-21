@@ -74,21 +74,11 @@ export declare type Acl = {
 };
 
 export type MicroAppName =
-    | 'report-html'
-    | 'report1-html'
-    | 'report2-html'
-    | 'report3-html'
-    | 'report4-html'
-    | 'arrangement-html'
-    | 'arrangement-v2'
-    | 'choose-words-html'
-    | 'correct-html'
-    | 'vocabulary-html'
-    | 'question-select'
-    | 'paper-editor'
-    | 'paper-select'
-    | 'sub-project'
-    | 'again-login';
+    | 'project-html'
+    | 'project1-html'
+    | 'project2-html'
+    | 'project3-html'
+    | 'project4-html'
 
 export type Route = {
     type?: 'push' | 'replace';
