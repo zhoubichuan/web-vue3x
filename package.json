@@ -34,6 +34,7 @@
     "deploy": "bash deploy.sh",
     "github": "bash github.sh",
     "gitee": "bash gitee.sh",
+    "scp:prod": "scp -r ./web-vue3x/* root@zhoubichuan.com:/usr/src/zhoubichuan/prod/",
     "build:js": "node rollup.js",
     "build:css": "npx gulp sass",
     "build:all": "npm run build:js && npm run build:css"
