@@ -4,11 +4,15 @@ import microApp from '@/extends/micro-app';
 
 export const routes: RouteRecordRaw[] = [
     {
+        path: `/`,
+        redirect: `/${microApp.name}`,
+    },
+    {
         path: `/${microApp.name}`,
-        component: '',
+        component: () => import('@/view/Home.vue'),
         meta: {
-        
+
         },
-     
+
     }
 ];

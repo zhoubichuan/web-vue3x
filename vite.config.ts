@@ -13,13 +13,13 @@ import postCssPxToRem from 'postcss-pxtorem';
 // https://vitejs.dev/config/
 export default defineConfig({
     css: {
-        preprocessorOptions: {
-            scss: {
-                additionalData: `
-                    @use "@/styles/element-plus.scss" as *;
-                `
-            }
-        },
+        // preprocessorOptions: {
+        //     scss: {
+        //         additionalData: `
+        //             @use "@/styles/element-plus.scss" as *;
+        //         `
+        //     }
+        // },
         postcss: {
             plugins: [
                 postCssPxToRem({

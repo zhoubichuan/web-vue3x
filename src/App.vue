@@ -9,7 +9,7 @@
 import { ElConfigProvider } from 'element-plus';
 </script>
 <style lang="scss">
-@import '@/styles/index.scss';
+// @import '@/styles/index.scss';
 
 .app {
     height: 100%;

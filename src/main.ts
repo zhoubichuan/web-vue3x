@@ -6,8 +6,7 @@ import microApp from '@/extends/micro-app';
 import type { MicroAppProps } from '@/extends/micro-app';
 import GlobalDirective from '@/directives';
 import router from '@/router';
-// import 'amfe-flexible'
-import initRem from '@/utils/rem.js';
+import 'amfe-flexible'
 
 let app: App;
 
@@ -33,7 +32,6 @@ renderWithQiankun({
         console.log(' book mount', props);
         microApp.setMicroAppProps(props as MicroAppProps);
         render(microApp.props);
-        initRem();
     },
     update(props) {
         console.log(' book update', props);
