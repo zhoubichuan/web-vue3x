@@ -5,5 +5,4 @@
 </template>
 
 <style lang="scss">
-@use '@/modules/base/styles' as *;
 </style>
