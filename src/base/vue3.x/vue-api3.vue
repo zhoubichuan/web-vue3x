@@ -1,7 +1,7 @@
 <template>
     <div>修改的数值：{{ data.list }}</div>
-    <button @click="handleClick">push添加数据</button>
-    <button @click="handleClick2">赋值添加数据</button>
+    <button @click="handleClick">push添加数据 </button>  
+    <button @click="handleClick2"> 赋值添加数据</button>
 </template>
 
 <script lang="ts" setup>
