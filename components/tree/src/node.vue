@@ -93,7 +93,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch, defineSlots } from 'vue'
+import { ref, watch } from 'vue'
 import VueInput from '../../input/index'
 import type { NodeType } from './type'
 

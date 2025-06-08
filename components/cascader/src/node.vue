@@ -66,7 +66,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch, defineSlots, inject, onMounted } from 'vue'
+import { ref, watch, inject, onMounted } from 'vue'
 import type { NodeType } from './type'
 import VueCheckBox from '../../checkbox/index'
 
