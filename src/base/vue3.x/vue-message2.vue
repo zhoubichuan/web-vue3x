@@ -5,7 +5,7 @@
  
 <script setup >
 import { ref } from 'vue';
-import ChildComponent from './EmitChildComponen.vue';
+import ChildComponent from './vue-message2-1.vue';
  
 const parentData = ref('父组件数据');
 </script>

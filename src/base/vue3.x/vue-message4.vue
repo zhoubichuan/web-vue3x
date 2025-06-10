@@ -5,7 +5,7 @@
 
 <script setup >
 import {ref} from 'vue'
-import Child from './AttrsChildCompone.vue'
+import Child from './vue-message4-1.vue'
 
 let a = ref(1)
 

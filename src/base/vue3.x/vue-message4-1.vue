@@ -3,5 +3,5 @@
 </template>
 
 <script setup >
-import GrandChild from "./AttrsGrandCompone.vue";
+import GrandChild from "./vue-message4-2.vue"
 </script>

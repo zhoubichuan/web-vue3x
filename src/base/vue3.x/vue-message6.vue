@@ -5,7 +5,7 @@
 
 <script setup>
 import {ref, reactive, provide} from 'vue'
-import ChildComponent from './ProvideChildCompone.vue';
+import ChildComponent from './vue-message6-1.vue';
 let money = ref(100)
 let car = reactive({
   brand: '宝马',

@@ -4,7 +4,7 @@
 </template>
 <script setup>
 import { ref } from "vue";
-import child from "./ExposeChildCompone.vue";
+import child from "./vue-message3-1.vue";
 const comp = ref(null);
 const handlerClick = () => {
   console.log(comp.value.childName); // 获取子组件对外暴露的属性
