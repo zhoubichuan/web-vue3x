@@ -125,6 +125,10 @@ export default {
                     text: '13.video',
                     link: '/base/project/13.video'
                 },
+                {
+                    text: '14.map',
+                    link: '/base/project/14.map'
+                },
             ]
         }
     ],
