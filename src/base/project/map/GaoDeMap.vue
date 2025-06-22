@@ -33,8 +33,8 @@
 import { reactive, ref, onMounted, onBeforeUnmount, provide, nextTick, defineExpose, inject, onUnmounted } from 'vue'
 import { debounce } from "lodash-es";
 import MapList from './MapList.vue'
-import AMapLoader from "@amap/amap-jsapi-loader";
 import { createCircleFence, createPolygonFence, queryFence, updateCircleFence, updatePolygonFence } from './service'
+
 const city = ref('')
 const handleToCity = (city) => {
   mapData.map?.setCity(city)
@@ -162,10 +162,13 @@ const cancelCreate = () => {
 }
 // 地图初始化
 const initializeMap = async () => {
-  window._AMapSecurityConfig = {
-    securityJsCode,
-  };
-  AMap = await AMapLoader.load({
+  // 动态导入模块
+  const AMapLoader = await import('@amap/amap-jsapi-loader')
+
+  // window._AMapSecurityConfig = {
+  //   securityJsCode,
+  // };
+  AMap = await AMapLoader.default().load({
     key: KEY, // 申请好的Web端开发者Key，首次调用 load 时必填
     version: "2.0", // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
     plugins: ["AMap.Scale,AMap.HawkEye,AMap.ToolBar,AMap.ControlBar,AMap.PlaceSearch,AMap.DistrictSearch,AMap.HeatMap,AMap.3DTilesLayer,AMap.IndoorMap,AMap.MoveAnimation,AMap.ElasticMarker,AMap.MarkerCluster,AMap.IndexCluster,AMap.MouseTool,AMap.BezierCurveEditor,AMap.RectangleEditor,AMap.CircleEditor,AMap.EllipseEditor,AMap.GeoJSON,AMap.PolylineEditor,AMap.PolygonEditor,AMap.AutoComplete,AMap.Driving,AMap.Walking,AMap.Riding,AMap.Transfer,AMap.Geocoder,AMap.GraspRoad,AMap.StationSearch,AMap.LineSearch,AMap.ArrivalRange,AMap.CitySearch,AMap.Geolocation,AMap.Weather,AMap.RangingTool"], //需要使用的的插件列表，如比例尺'AMap.Scale'，支持添加多个如：['...','...']
