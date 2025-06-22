@@ -44,7 +44,7 @@ export const startOrStopFence = async () => {
 export const delFence = async (params) => {
   params = {
     key: KEY,
-    sid: '1049972',
+    sid: params.sid,
     gfid: "",
   }
   const res = await axios({

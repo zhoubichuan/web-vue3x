@@ -19,7 +19,7 @@
 <script lang="ts" setup>
 import { inject } from 'vue'
 import axios from 'axios'
-const { KEY } = inject('config')
+const { KEY, sid } = inject('config')
 const { mapData } = inject('mapData')
 const { getMapList, list, safeCloseEditor } = defineProps({
   getMapList: {
@@ -95,7 +95,7 @@ const editFence = async (fence) => {
 const delFence = async (gfids: string) => {
   const params = {
     key: KEY,
-    sid: '1049972',
+    sid: sid,
     gfids,
   }
   const { data } = await axios({

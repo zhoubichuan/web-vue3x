@@ -22,7 +22,8 @@
       <button v-if="mapData.isEditing" @click="finishEditing" class="edit-complete-btn">
         ✔️ 完成编辑
       </button>
-      <button @click="handleToCity(city)">去指定城市</button><input type="text" v-model="city">
+      <button @click="handleToCity">指定城市</button><input type="text" v-model="city">
+      <button @click="handleToLocal">指定经纬度</button><input type="text" v-model="address">
       <MapList v-if="show" :list="fences" :key="fences.length" :getMapList="getMapList"
         :safeCloseEditor="safeCloseEditor" />
     </div>
@@ -34,10 +35,19 @@ import { reactive, ref, onMounted, onBeforeUnmount, provide, nextTick, defineExp
 import { debounce } from "lodash-es";
 import MapList from './MapList.vue'
 import { createCircleFence, createPolygonFence, queryFence, updateCircleFence, updatePolygonFence } from './service'
-
+const { statrAddress } = defineProps({
+  statrAddress: {
+    type: Array,
+    default: () => [],
+  }
+})
 const city = ref('')
-const handleToCity = (city) => {
-  mapData.map?.setCity(city)
+const handleToCity = () => {
+  mapData.map?.setCity(city.value)
+}
+const address = ref(statrAddress.join(','))
+const handleToLocal = () => {
+  mapData.map?.setCenter(address.value.split(','))
 }
 const show = ref(true)
 let AMap = null
@@ -52,12 +62,6 @@ const getMapList = async () => {
   fences.splice(0, data.results.length, ...data.results)
   mapData.debouncedUpdate(fences);
 }
-const { statrAddress } = defineProps({
-  statrAddress: {
-    type: Array,
-    default: () => [],
-  }
-})
 const setCreated = () => {
   if (fences.length == 0) return;
   mapData.isCZ = true;
@@ -162,9 +166,8 @@ const cancelCreate = () => {
 }
 // 地图初始化
 const initializeMap = async () => {
-  // 动态导入模块
+    // 动态导入模块
   const AMapLoader = await import('@amap/amap-jsapi-loader')
-
   // window._AMapSecurityConfig = {
   //   securityJsCode,
   // };
