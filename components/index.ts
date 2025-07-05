@@ -21,7 +21,7 @@ import Input from './input/index'
 // import Select from './select/index'
 // import Option from './option/index'
 // import OptionGroup from './option-group/index'
-// import Button from './button/index'
+import Button from './button/index'
 // import ButtonGroup from './button-group/index'
 // import Search from './search/index'
 // import Dialog from './dialog/index'
@@ -120,7 +120,7 @@ const components = [
   // Select,
   // Option,
   // OptionGroup,
-  // Button,
+  Button,
   // Search,
   // Dialog,
   // Slider,
@@ -242,7 +242,7 @@ export default {
   // Select,
   // Option,
   // OptionGroup,
-  // Button,
+  Button,
   // ButtonGroup,
   // Search,
   // Dialog,
