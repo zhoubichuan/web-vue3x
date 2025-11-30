@@ -1,0 +1,1 @@
+import{_ as e,B as n,b as s,o as r,w as a,a as c}from"./framework.w6K5euoA.js";const _={};function u(f,t){const o=n("vue-button");return r(),s(o,null,{default:a(()=>[...t[0]||(t[0]=[c("按钮",-1)])]),_:1})}const p=e(_,[["render",u]]);export{p as b};
