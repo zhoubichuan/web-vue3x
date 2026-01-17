@@ -129,6 +129,10 @@ export default {
                     text: '14.map',
                     link: '/base/project/14.map'
                 },
+                {
+                    text: '15.image',
+                    link: '/base/project/15.image'
+                },
             ]
         }
     ],
