@@ -74,43 +74,43 @@ export default {
                     link: '/base/project/1.index'
                 },
                 {
-                    text: '1.config',
+                    text: '1.项目配置',
                     link: '/base/project/1.config'
                 },
                 {
-                    text: '2.skill',
+                    text: '2.开发技巧',
                     link: '/base/project/2.skill'
                 },
                 {
-                    text: '3.login',
+                    text: '3.登陆模块',
                     link: '/base/project/3.login'
                 },
                 {
-                    text: '4.projectMonitor',
+                    text: '4.前端监控',
                     link: '/base/project/4.projectMonitor'
                 },
                 {
-                    text: '5.test',
+                    text: '5.前端测试',
                     link: '/base/project/5.test'
                 },
                 {
-                    text: '6.configurePrem',
+                    text: '6.权限管理',
                     link: '/base/project/6.configurePrem'
                 },
                 {
-                    text: '7.internationalization',
+                    text: '7.国际化',
                     link: '/base/project/7.internationalization'
                 },
                 {
-                    text: '8.errorCollection',
+                    text: '8.常见问题',
                     link: '/base/project/8.errorCollection'
                 },
                 {
-                    text: '9.optimize',
+                    text: '9.性能优化',
                     link: '/base/project/9.optimize'
                 },
                 {
-                    text: '10.server',
+                    text: '10.服务端渲染',
                     link: '/base/project/10.server'
                 },
                 {
@@ -118,20 +118,20 @@ export default {
                     link: '/base/project/11.pwa'
                 },
                 {
-                    text: '12.upload',
+                    text: '12.上传下载',
                     link: '/base/project/12.upload'
                 },
                 {
-                    text: '13.video',
+                    text: '13.视频功能',
                     link: '/base/project/13.video'
                 },
                 {
-                    text: '14.map',
+                    text: '14.地图功能',
                     link: '/base/project/14.map'
                 },
                 {
-                    text: '15.image',
-                    link: '/base/project/15.image'
+                    text: '15.文件操作',
+                    link: '/base/project/15.file'
                 },
             ]
         }
