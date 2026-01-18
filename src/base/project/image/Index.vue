@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-  <button @click="handleList">获取列表</button>
+    <button @click="handleList">获取列表</button>
     目录：<input type="text" v-model="items.path" />
     文件：<input type="text" v-model="items.foldName[0]" />
     <div class="box-images">
@@ -14,18 +14,25 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive ,onMounted} from "vue"
+import { ref, reactive, onMounted } from "vue"
 const items = reactive({
   type: "move",
   path: "",
   foldName: [],
   fileType: [".png", ".txt"],
   fileName: [
-   
+
   ]
 })
 const handleList = async () => {
-  items.fileName = await message({type:'read',path:items.path})
+  const files = await message({ type: 'read', path: items.path })
+  items.fileName  = files.map((item, index) => {
+    return {
+      name:item,
+      rename:index + 1,
+      index: index + 1,
+    }
+  })
 }
 onMounted(() => {
   handleList()
