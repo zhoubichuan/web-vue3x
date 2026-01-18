@@ -1,38 +1,43 @@
 <template>
   <div class="wrap">
     <button @click="handleList">获取列表</button>
-    目录：<input type="text" v-model="items.path" />
-    文件：<input type="text" v-model="items.foldName[0]" />
+    <br>
+    根目录：<input type="text" v-model="items.path" style="width: calc(100% - 100px);" />
+    <br>
+    文件夹：<input type="text" v-model="items.foldName[0]" style="width: calc(100% - 100px);" />
     <div class="box-images">
       <div class="item" v-for="item in items.fileName" :draggable="true" @dragstart="dragstart(item)" @drop="drop(item)"
         @dragover="dragover" :key="item.name">
-        {{ item.title }}
-        <img :src="items.path + items.foldName[0] + item.name + items.fileType[0]" alt="">"
+        {{ item.name }}
+        <img :src="items.path + '/' + items.foldName[0] + item.name + '.' + items.fileType[0]" alt="">
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, onMounted } from "vue"
+import { ref, reactive, onMounted, toRaw } from "vue"
+const data = {
+  type: "read",
+  path: "/Users/zhoubichuan/",
+  foldName: ['my-image'],
+  fileType: ["JPG"],
+}
 const items = reactive({
-  type: "move",
-  path: "",
-  foldName: [],
-  fileType: [".png", ".txt"],
-  fileName: [
-
-  ]
+  ...data,
+  type: 'edit',
+  fileName: []
 })
 const handleList = async () => {
-  const files = await message({ type: 'read', path: items.path })
+  const files = await message(data)
   items.fileName = files.map((item, index) => {
     return {
-      name: item,
+      name: item.split('.')[0],
       rename: index + 1,
       index: index + 1,
     }
   })
+
 }
 onMounted(() => {
   handleList()
@@ -42,7 +47,7 @@ const dragstart = (item) => {
   preIndex.value = item;
 }
 const message = (value) => {
-  window.electron?.ipcRenderer?.sendMessage('filehandle', [value]);
+  window.electron?.ipcRenderer?.sendMessage('filehandle', value);
   return new Promise((resolve) => {
     window.electron?.ipcRenderer?.once('filehandle', (arg) => {
       resolve(arg);
@@ -59,7 +64,8 @@ const drop = async (item) => {
     index: item.index,
   });
   preIndex.value.index = 0
-  items.fileName = await message(items)
+  await message(toRaw(items))
+  await handleList()
 }
 const dragover = (e) => {
   e.preventDefault();
@@ -70,12 +76,14 @@ const dragover = (e) => {
   width: 500px;
   height: 500px;
 }
+
 .wrap .box-images {
   width: 500px;
   height: 500px;
 
 
 }
+
 .wrap .box-images .item:nth-child(2n) {
   width: 33.33%;
   height: 33.33%;

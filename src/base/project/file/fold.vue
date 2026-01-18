@@ -10,13 +10,14 @@ import { ref, onMounted } from "vue"
 const fold = ref('')
 const handleList = async () => {
   const res = await message({ type: 'read', path: '' })
+  if (!res) return
   fold.value = res
 }
 onMounted(() => {
   handleList()
 })
 const message = (value) => {
-  window.electron?.ipcRenderer?.sendMessage('filehandle', [value]);
+  window.electron?.ipcRenderer?.sendMessage('filehandle', value);
   return new Promise((resolve) => {
     window.electron?.ipcRenderer?.once('filehandle', (arg) => {
       resolve(arg);
