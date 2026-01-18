@@ -26,10 +26,10 @@ const items = reactive({
 })
 const handleList = async () => {
   const files = await message({ type: 'read', path: items.path })
-  items.fileName  = files.map((item, index) => {
+  items.fileName = files.map((item, index) => {
     return {
-      name:item,
-      rename:index + 1,
+      name: item,
+      rename: index + 1,
       index: index + 1,
     }
   })
@@ -65,28 +65,28 @@ const dragover = (e) => {
   e.preventDefault();
 }
 </script>
-<style lang="scss">
+<style>
 .wrap {
   width: 500px;
   height: 500px;
+}
+.wrap .box-images {
+  width: 500px;
+  height: 500px;
 
-  .box-images {
-    width: 500px;
-    height: 500px;
 
-    .item:nth-child(2n) {
-      width: 33.33%;
-      height: 33.33%;
-      background-color: lightblue;
-      float: left;
-    }
+}
+.wrap .box-images .item:nth-child(2n) {
+  width: 33.33%;
+  height: 33.33%;
+  background-color: lightblue;
+  float: left;
+}
 
-    .item:nth-child(2n+1) {
-      width: 33.33%;
-      height: 33.33%;
-      background-color: lightcyan;
-      float: left;
-    }
-  }
+.wrap .box-images .item:nth-child(2n+1) {
+  width: 33.33%;
+  height: 33.33%;
+  background-color: lightcyan;
+  float: left;
 }
 </style>
