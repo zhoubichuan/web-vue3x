@@ -19,6 +19,7 @@ export default defineConfig({
   // #region fav
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }],
+    ["script", { src: "https://unpkg.com/xlsx/dist/xlsx.full.min.js" }],
   ],
   vite: {
     resolve: {

@@ -27,7 +27,7 @@ import Button from './button/index'
 // import Dialog from './dialog/index'
 // import Modal from './modal/index'
 // import CommonForm from './common-form/index'
-// import Table from './table/index'
+import Table from './table/index'
 // import TableColumn from './table-column/index'
 // import DatePicker from './date-picker/index'
 // import TimeSelect from './time-select/index'
@@ -129,7 +129,7 @@ const components = [
   // Modal,
   // ButtonGroup,
   // CommonForm,
-  // Table,
+  Table,
   // TableColumn,
   // DatePicker,
   // TimeSelect,
